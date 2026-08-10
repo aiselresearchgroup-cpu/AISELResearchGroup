@@ -1,0 +1,40 @@
+/* ==========================================================
+   AISEL — SHARED ANIMATION UTILITIES
+   Keyframes and small utility classes reused by several
+   sections, so individual section files don't redefine the
+   same @keyframes. Durations pull from the --dur-* tokens in
+   variables.css so pacing stays consistent site-wide.
+
+   Motion should read as "lab instrumentation", not "marketing
+   site" — restrained, mechanical, no bounce/elastic easing.
+   Respects prefers-reduced-motion (see the blanket rule in
+   base.css, which already disables all of this).
+========================================================== */
+
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none; } }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes ripple{ from{ box-shadow:0 0 0 0 rgba(var(--violet-rgb),0.25); } to{ box-shadow:0 0 0 14px rgba(var(--violet-rgb),0); } }
+  @keyframes floatY{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  @keyframes blink{ 0%,50%{ opacity:1; } 51%,100%{ opacity:0; } }
+  @keyframes glowIn{ from{ opacity:0; box-shadow:0 0 0 rgba(var(--teal-rgb),0); } to{ opacity:1; box-shadow:0 0 0 rgba(var(--teal-rgb),0); } }
+  @keyframes scanline{ 0%{ transform:translateY(-100%); } 100%{ transform:translateY(100%); } }
+
+  /* staggered reveal helper — apply alongside .reveal, add inline
+     style="--stagger:N" (N = 0,1,2…) on each child for a cascade */
+  .reveal{ transition-delay:calc(var(--stagger, 0) * 70ms); }
+
+  .spinner-ring{ display:inline-block; width:14px; height:14px; border:2px solid currentColor; border-right-color:transparent; border-radius:50%; animation:spin var(--dur-slow) linear infinite; }
+
+  .float{ animation:floatY 4s ease-in-out infinite; }
+
+  /* ---------- cursor blink (terminal caret, reused beyond #boot) ---------- */
+  .caret{ display:inline-block; width:8px; height:1em; background:currentColor; animation:blink 1s steps(1) infinite; vertical-align:-2px; }
+
+  /* ---------- fade-in-place utility for lazily rendered content
+     (e.g. JS-rendered People cards, Publications rows) ---------- */
+  .fade-in{ animation:fadeUp var(--dur-slow) var(--ease-out); }
+
+  @media (prefers-reduced-motion: reduce){
+    .float{ animation:none; }
+    .caret{ animation:none; opacity:1; }
+  }

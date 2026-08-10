@@ -1,0 +1,1560 @@
+/* ==========================================================
+   AISEL — TESTIMONIALS / ACADEMIC VOICES
+   Complete visual system
+========================================================== */
+
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+#testimonials.aisel-testimonials {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc 0%,
+      #ffffff 45%,
+      #f8fafc 100%
+    );
+
+  color: var(--ink);
+
+}
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.testimonials-hero {
+
+  position: relative;
+
+  min-height: 430px;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+      circle at 82% 22%,
+      rgba(37, 99, 235, .18),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 12% 85%,
+      rgba(6, 182, 212, .13),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #070b18 0%,
+      #0b1020 50%,
+      #10172c 100%
+    );
+
+  color: #ffffff;
+
+}
+
+
+/* ==========================================================
+   HERO GRID
+========================================================== */
+
+.testimonials-hero-grid {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+
+    linear-gradient(
+      rgba(255,255,255,.045) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  opacity: .7;
+
+  mask-image:
+
+    linear-gradient(
+      90deg,
+      black 0%,
+      black 60%,
+      transparent 100%
+    );
+
+  animation:
+    testimonialGridMove 18s linear infinite;
+
+  pointer-events: none;
+
+}
+
+
+@keyframes testimonialGridMove {
+
+  0% {
+
+    transform:
+      translate3d(0,0,0);
+
+  }
+
+  50% {
+
+    transform:
+      translate3d(-20px,12px,0);
+
+  }
+
+  100% {
+
+    transform:
+      translate3d(0,0,0);
+
+  }
+
+}
+
+
+/* ==========================================================
+   HERO ORBS
+========================================================== */
+
+.testimonials-hero-orb {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(3px);
+
+}
+
+
+.testimonials-orb-one {
+
+  width: 360px;
+
+  height: 360px;
+
+  right: -120px;
+
+  top: -150px;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(37,99,235,.28),
+      transparent 70%
+    );
+
+  animation:
+    testimonialOrbOne 8s ease-in-out infinite;
+
+}
+
+
+.testimonials-orb-two {
+
+  width: 300px;
+
+  height: 300px;
+
+  left: -130px;
+
+  bottom: -150px;
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(6,182,212,.22),
+      transparent 70%
+    );
+
+  animation:
+    testimonialOrbTwo 10s ease-in-out infinite;
+
+}
+
+
+@keyframes testimonialOrbOne {
+
+  0%,
+  100% {
+
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+  }
+
+  50% {
+
+    transform:
+      translate3d(-30px,25px,0)
+      scale(1.08);
+
+  }
+
+}
+
+
+@keyframes testimonialOrbTwo {
+
+  0%,
+  100% {
+
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+
+  }
+
+  50% {
+
+    transform:
+      translate3d(35px,-20px,0)
+      scale(1.12);
+
+  }
+
+}
+
+
+/* ==========================================================
+   HERO PARTICLES
+========================================================== */
+
+.testimonials-hero-particles {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+}
+
+
+.testimonial-particle {
+
+  position: absolute;
+
+  width: 3px;
+
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: rgba(147,197,253,.7);
+
+  box-shadow:
+    0 0 12px rgba(96,165,250,.5);
+
+  animation:
+    testimonialParticleFloat
+    var(--particle-duration)
+    ease-in-out
+    infinite;
+
+  animation-delay:
+    var(--particle-delay);
+
+}
+
+
+@keyframes testimonialParticleFloat {
+
+  0%,
+  100% {
+
+    opacity: .15;
+
+    transform:
+      translate3d(0,20px,0)
+      scale(.8);
+
+  }
+
+  50% {
+
+    opacity: .9;
+
+    transform:
+      translate3d(
+        var(--particle-x),
+        -30px,
+        0
+      )
+      scale(1.3);
+
+  }
+
+}
+
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+.testimonials-hero-inner {
+
+  position: relative;
+
+  z-index: 3;
+
+  padding-top: 72px;
+
+  padding-bottom: 72px;
+
+}
+
+
+.testimonials-hero-kicker {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 18px;
+
+  color: #93c5fd;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: .14em;
+
+}
+
+
+.testimonials-hero-kicker .kicker-line {
+
+  width: 35px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #60a5fa,
+      transparent
+    );
+
+}
+
+
+.testimonials-hero-title {
+
+  max-width: 850px;
+
+  text-align: center;
+
+  margin: 0;
+
+  font-family:
+    "IBM Plex Sans",
+    sans-serif;
+
+  font-size:
+    clamp(
+      40px,
+      6vw,
+      72px
+    );
+
+  line-height: .98;
+
+  letter-spacing: -.05em;
+
+  font-weight: 700;
+
+}
+
+
+.testimonials-hero-title span {
+
+  color: #8db5ff;
+
+}
+
+
+.testimonials-hero-description {
+
+  max-width: 760px;
+
+  margin-top: 24px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      .70
+    );
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  text-align: justify;
+
+}
+
+
+.testimonials-hero-tags {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 25px;
+
+}
+
+
+.testimonials-hero-tags span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      .12
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .055
+    );
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      .80
+    );
+
+  font-size: 11px;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+
+}
+
+
+.testimonials-hero-tags span:hover {
+
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .09
+    );
+
+  border-color:
+    rgba(
+      147,
+      197,
+      253,
+      .35
+    );
+
+}
+
+
+.testimonials-hero-tags i {
+
+  color: #93c5fd;
+
+}
+
+
+.testimonials-hero-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 27px;
+
+  padding: 11px 16px;
+
+  border:
+    1px solid
+    rgba(
+      147,
+      197,
+      253,
+      .25
+    );
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .06
+    );
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease;
+
+}
+
+
+.testimonials-hero-button:hover {
+
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .11
+    );
+
+  border-color:
+    rgba(
+      147,
+      197,
+      253,
+      .45
+    );
+
+}
+
+
+/* ==========================================================
+   MAIN CONTENT
+========================================================== */
+
+.testimonials-main {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding-top: 62px;
+
+  padding-bottom: 65px;
+
+}
+
+
+.testimonials-main .section-head {
+
+  margin-bottom: 28px;
+
+}
+
+
+.testimonials-main .section-desc {
+
+  max-width: 800px;
+
+  text-align: justify;
+
+}
+
+
+/* ==========================================================
+   CAROUSEL
+========================================================== */
+
+.testi-carousel {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  position: relative;
+
+}
+
+
+.testi-viewport {
+
+  flex: 1;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+}
+
+
+.testi-track {
+
+  display: flex;
+
+  width: 100%;
+
+  will-change: transform;
+
+  transition:
+    transform
+    .7s
+    cubic-bezier(
+      .22,
+      .61,
+      .36,
+      1
+    );
+
+}
+
+
+.testi-slide {
+
+  flex: 0 0 100%;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 4px;
+
+  opacity: .55;
+
+  transition:
+    opacity .55s ease;
+
+}
+
+
+.testi-slide.is-active {
+
+  opacity: 1;
+
+}
+
+
+/* ==========================================================
+   COMPACT CARD
+========================================================== */
+
+.testi-card {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  min-height: 260px;
+
+  margin: 0 auto;
+
+  padding: 22px 26px 20px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(
+      15,
+      23,
+      42,
+      .09
+    );
+
+  border-radius: 18px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .96
+    );
+
+  box-shadow:
+    0 16px 40px
+    rgba(
+      15,
+      23,
+      42,
+      .07
+    );
+
+  text-align: left;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+
+}
+
+
+.testi-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(
+      37,
+      99,
+      235,
+      .22
+    );
+
+  box-shadow:
+    0 25px 55px
+    rgba(
+      37,
+      99,
+      235,
+      .11
+    );
+
+}
+
+
+/* ==========================================================
+   CARD ACCENT
+========================================================== */
+
+.testi-card-accent {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #06b6d4,
+      #6355c7
+    );
+
+  transform:
+    scaleX(.2);
+
+  transform-origin: left;
+
+  transition:
+    transform .6s ease;
+
+}
+
+
+.testi-card:hover
+.testi-card-accent {
+
+  transform:
+    scaleX(1);
+
+}
+
+
+/* ==========================================================
+   CARD HEADER
+========================================================== */
+
+.testi-card-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 11px;
+
+}
+
+
+.testi-avatar {
+
+  width: 48px;
+
+  height: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  flex: 0 0 48px;
+
+  border:
+    2px solid
+    rgba(
+      37,
+      99,
+      235,
+      .13
+    );
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eff6ff,
+      #ecfeff
+    );
+
+  color: #2563eb;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      37,
+      99,
+      235,
+      .10
+    );
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+}
+
+
+.testi-card:hover
+.testi-avatar {
+
+  transform:
+    scale(1.08)
+    rotate(3deg);
+
+  box-shadow:
+    0 12px 28px
+    rgba(
+      37,
+      99,
+      235,
+      .17
+    );
+
+}
+
+
+.testi-profile-number {
+
+  color: #94a3b8;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: .08em;
+
+}
+
+
+/* ==========================================================
+   TYPE
+========================================================== */
+
+.testi-type {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #2563eb;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9.5px;
+
+  font-weight: 600;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+}
+
+
+.testi-type i {
+
+  font-size: 10px;
+
+}
+
+
+/* ==========================================================
+   NAME
+========================================================== */
+
+.testi-name {
+
+  margin:
+    6px 0 2px;
+
+  color:
+    var(--ink);
+
+  font-size: 20px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+}
+
+
+.testi-role {
+
+  margin: 0;
+
+  color:
+    var(--ink-soft);
+
+  font-size: 11.5px;
+
+  line-height: 1.45;
+
+}
+
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.testi-divider {
+
+  width: 45px;
+
+  height: 2px;
+
+  margin:
+    11px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #06b6d4
+    );
+
+  border-radius: 999px;
+
+}
+
+
+/* ==========================================================
+   DESCRIPTION / QUOTE
+========================================================== */
+
+.testi-quote {
+
+  position: relative;
+
+  z-index: 1;
+
+  margin:
+    0 0 11px;
+
+  color:
+    #334155;
+
+  font-size: 12.5px;
+
+  line-height: 1.65;
+
+  text-align: justify;
+
+}
+
+
+/* ==========================================================
+   TAGS
+========================================================== */
+
+.testi-tags {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+}
+
+
+.testi-tags span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    5px 8px;
+
+  border-radius: 999px;
+
+  background:
+    #f1f5f9;
+
+  color:
+    #475569;
+
+  font-size: 9.5px;
+
+  line-height: 1;
+
+  transition:
+    transform .25s ease,
+    background .25s ease;
+
+}
+
+
+.testi-tags span:hover {
+
+  transform:
+    translateY(-2px);
+
+  background:
+    #e0f2fe;
+
+}
+
+
+/* ==========================================================
+   OFFICIAL PROFILE LINK
+========================================================== */
+
+.testi-profile-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+
+  color:
+    #2563eb;
+
+  font-size: 10.5px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    gap .25s ease,
+    color .25s ease;
+
+}
+
+
+.testi-profile-link:hover {
+
+  gap: 11px;
+
+  color:
+    #1d4ed8;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION BUTTONS
+========================================================== */
+
+.testi-prev,
+.testi-next {
+
+  position: relative;
+
+  z-index: 4;
+
+  flex: 0 0 auto;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+
+}
+
+
+.testi-prev:hover,
+.testi-next:hover {
+
+  transform:
+    translateY(-2px)
+    scale(1.06);
+
+  box-shadow:
+    0 12px 28px
+    rgba(
+      37,
+      99,
+      235,
+      .15
+    );
+
+}
+
+
+/* ==========================================================
+   CONTROLS
+========================================================== */
+
+.testi-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 17px;
+
+}
+
+
+.testi-dots {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+}
+
+
+.testi-dot {
+
+  width: 7px;
+
+  height: 7px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    #cbd5e1;
+
+  cursor: pointer;
+
+  transition:
+    width .25s ease,
+    background .25s ease,
+    transform .25s ease;
+
+}
+
+
+.testi-dot:hover {
+
+  transform:
+    scale(1.2);
+
+}
+
+
+.testi-dot.active {
+
+  width: 20px;
+
+  background:
+    #6355c7;
+
+}
+
+
+.testi-progress {
+
+  width: 100px;
+
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    #e2e8f0;
+
+}
+
+
+.testi-progress span {
+
+  display: block;
+
+  width: 33.333%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #06b6d4
+    );
+
+  transition:
+    width .6s ease;
+
+}
+
+
+.testi-counter {
+
+  color:
+    #64748b;
+
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+}
+
+
+/* ==========================================================
+   BOTTOM
+========================================================== */
+
+.testimonials-bottom {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 35px;
+
+}
+
+
+.testimonials-bottom > span {
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #cbd5e1
+    );
+
+}
+
+
+.testimonials-bottom > span:last-child {
+
+  background:
+    linear-gradient(
+      90deg,
+      #cbd5e1,
+      transparent
+    );
+
+}
+
+
+.testimonials-bottom p {
+
+  margin: 0;
+
+  color:
+    #64748b;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+}
+
+
+.testimonials-bottom strong {
+
+  color:
+    #334155;
+
+}
+
+
+/* ==========================================================
+   GLOBAL JUSTIFICATION
+========================================================== */
+
+#testimonials p,
+#testimonials .section-desc,
+#testimonials .testimonials-hero-description,
+#testimonials .testi-quote {
+
+  text-align: justify;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+  .testimonials-hero {
+
+    min-height: 380px;
+
+  }
+
+
+  .testimonials-hero-inner {
+
+    padding-top: 55px;
+
+    padding-bottom: 55px;
+
+  }
+
+
+  .testimonials-hero-title {
+
+    font-size: 42px;
+
+  }
+
+
+  .testimonials-hero-description {
+
+    font-size: 13px;
+
+  }
+
+
+  .testi-carousel {
+
+    gap: 7px;
+
+  }
+
+
+  .testi-card {
+
+    min-height: 0;
+
+    padding:
+      20px;
+
+  }
+
+
+  .testi-name {
+
+    font-size: 18px;
+
+  }
+
+
+  .testi-quote {
+
+    font-size: 12px;
+
+  }
+
+
+  .testimonials-bottom > span {
+
+    display: none;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .testimonials-hero-title {
+
+    font-size: 36px;
+
+  }
+
+
+  .testimonials-hero-tags {
+
+    gap: 6px;
+
+  }
+
+
+  .testimonials-hero-tags span {
+
+    font-size: 9px;
+
+    padding:
+      6px 8px;
+
+  }
+
+
+  .testi-card {
+
+    padding:
+      18px;
+
+  }
+
+
+  .testi-controls {
+
+    gap: 9px;
+
+  }
+
+
+  .testi-progress {
+
+    width: 65px;
+
+  }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .testimonials-hero-grid,
+  .testimonials-hero-orb,
+  .testimonial-particle,
+  .testi-track,
+  .testi-slide,
+  .testi-card,
+  .testi-avatar,
+  .testi-dot,
+  .testi-profile-link {
+
+    animation: none !important;
+
+    transition: none !important;
+
+  }
+
+}

@@ -1,0 +1,5761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AISEL — AI-Driven Software Engineering Lab</title>
+<meta name="description" content="AISEL researches intelligent automation of software engineering, automated software engineering (ASE), data-driven analytics on software repositories, and natural language-based software engineering." />
+<link rel="canonical" href="https://aisel-lab.example.edu/" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AISEL — AI-Driven Software Engineering Lab" />
+<meta property="og:title" content="AISEL — AI-Driven Software Engineering Lab" />
+<meta property="og:description" content="Intelligent automation of software engineering: ASE, repository analytics, and natural language-based software engineering." />
+<meta property="og:url" content="https://aisel-lab.example.edu/" />
+<meta property="og:image" content="https://aisel-lab.example.edu/assets/images/og-cover.png" />
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AISEL — AI-Driven Software Engineering Lab" />
+<meta name="twitter:description" content="Intelligent automation of software engineering: ASE, repository analytics, and natural language-based software engineering." />
+<meta name="twitter:image" content="https://aisel-lab.example.edu/assets/images/og-cover.png" />
+
+<!-- Structured data (Organization) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "AISEL — AI-Driven Software Engineering Lab",
+  "url": "https://aisel-lab.example.edu/",
+  "sameAs": ["https://github.com/aisel-lab"],
+  "description": "AISEL researches intelligent automation of software engineering, automated software engineering (ASE), data-driven analytics on software repositories, and natural language-based software engineering."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- Shared design system: variables/reset/nav/shell (base), reusable
+     components (buttons, badges, stat cards…), and shared animation
+     keyframes/utilities. Loaded before any per-section stylesheet so
+     section files can rely on them without redefining anything. -->
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+<!-- Per-section styles -->
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/research.css">
+<link rel="stylesheet" href="css/people.css">
+<link rel="stylesheet" href="css/publications.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="css/testimonials.css">
+<link rel="stylesheet" href="css/partners.css">
+<link rel="stylesheet" href="css/contact.css">
+<!-- Additive, non-destructive mobile-responsiveness safety net; always loaded last -->
+<link rel="stylesheet" href="css/responsive-fixes.css">
+
+<style id="aisel-testimonials-polish">
+/* ==========================================================
+   AISEL — POLISHED ACADEMIC VOICES / TESTIMONIALS
+   Compact cards + dedicated hero
+========================================================== */
+
+#testimonials.testimonials-polished {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 72px;
+  background:
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 42%, #f8fafc 100%);
+}
+
+.testimonials-hero {
+  position: relative;
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(37,99,235,.14), transparent 28%),
+    radial-gradient(circle at 15% 80%, rgba(6,182,212,.10), transparent 30%),
+    #0b1020;
+  color: #fff;
+}
+
+.testimonials-hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .20;
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(90deg, black, transparent 90%);
+}
+
+.testimonials-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.testimonials-hero-orb-a {
+  width: 280px;
+  height: 280px;
+  right: -90px;
+  top: -100px;
+  background: radial-gradient(circle, rgba(37,99,235,.28), transparent 70%);
+}
+
+.testimonials-hero-orb-b {
+  width: 240px;
+  height: 240px;
+  left: -100px;
+  bottom: -120px;
+  background: radial-gradient(circle, rgba(6,182,212,.20), transparent 70%);
+}
+
+.testimonials-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding-top: 68px;
+  padding-bottom: 68px;
+}
+
+.testimonials-hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #9fb7ff;
+  font: 600 11px/1.2 "IBM Plex Mono", monospace;
+  letter-spacing: .13em;
+}
+
+.testimonials-hero-kicker .kicker-line {
+  width: 34px;
+  height: 1px;
+  background: #60a5fa;
+}
+
+.testimonials-hero h1 {
+  max-width: 820px;
+  margin: 0;
+  font: 700 clamp(36px, 5.5vw, 68px)/.98 "IBM Plex Sans", sans-serif;
+  letter-spacing: -.045em;
+}
+
+.testimonials-hero h1 span {
+  color: #8eb4ff;
+}
+
+.testimonials-hero p {
+  max-width: 720px;
+  margin: 22px 0 0;
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.testimonials-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.testimonials-hero-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,.055);
+  color: rgba(255,255,255,.78);
+  font-size: 11px;
+}
+
+.testimonials-hero-tags i {
+  color: #8eb4ff;
+}
+
+.testimonials-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 58px;
+}
+
+.testimonials-section-head {
+  margin-bottom: 26px;
+}
+
+.testimonials-section-head .section-desc {
+  max-width: 720px;
+}
+
+.testi-carousel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testi-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.testi-track {
+  display: flex;
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+
+.testi-slide {
+  flex: 0 0 100%;
+  padding: 3px;
+  box-sizing: border-box;
+  opacity: .55;
+  transition: opacity .4s ease;
+}
+
+.testi-slide.is-active {
+  opacity: 1;
+}
+
+.testi-card {
+  position: relative;
+  max-width: 720px;
+  min-height: 255px;
+  margin: 0 auto;
+  padding: 23px 27px 20px;
+  box-sizing: border-box;
+  border: 1px solid rgba(15,23,42,.09);
+  border-radius: 18px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 16px 38px rgba(15,23,42,.07);
+  overflow: hidden;
+  text-align: left;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.testi-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,#2563eb,#06b6d4,#6355c7);
+}
+
+.testi-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37,99,235,.22);
+  box-shadow: 0 22px 48px rgba(37,99,235,.10);
+}
+
+.testi-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.testi-avatar-initials {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,99,235,.14);
+  background: linear-gradient(145deg,#eff6ff,#ecfeff);
+  color: #2563eb;
+  font: 700 14px/1 "IBM Plex Sans", sans-serif;
+  box-shadow: 0 7px 18px rgba(37,99,235,.10);
+}
+
+.testi-index {
+  color: #94a3b8;
+  font: 600 10px/1 "IBM Plex Mono", monospace;
+  letter-spacing: .08em;
+}
+
+.testi-profile-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2563eb;
+  font: 600 10px/1.2 "IBM Plex Mono", monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.testi-name {
+  margin: 7px 0 2px;
+  color: #0f172a;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.testi-role {
+  margin: 0;
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.testi-quote {
+  position: relative;
+  z-index: 1;
+  margin: 13px 0 12px;
+  color: #334155;
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.testi-quote::before {
+  content: none;
+}
+
+.testi-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.testi-tags span {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.testi-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 13px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.testi-profile-link:hover {
+  text-decoration: underline;
+}
+
+.testi-prev,
+.testi-next {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.testi-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 15px;
+}
+
+.testi-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+
+.testi-dot.active {
+  width: 19px;
+  background: #6355c7;
+}
+
+@media (max-width: 700px) {
+  .testimonials-hero {
+    min-height: 350px;
+  }
+
+  .testimonials-hero-inner {
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .testimonials-hero h1 {
+    font-size: 40px;
+  }
+
+  .testimonials-hero p {
+    font-size: 13px;
+  }
+
+  .testi-carousel {
+    gap: 7px;
+  }
+
+  .testi-card {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .testi-name {
+    font-size: 18px;
+  }
+
+  .testi-quote {
+    font-size: 12.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testi-track,
+  .testi-slide,
+  .testi-card,
+  .testi-dot {
+    transition: none !important;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="boot"><pre id="bootText"></pre></div>
+<div id="progress"></div>
+<div id="driftLayer"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+
+    <a class="brand" href="#home" aria-label="AISEL Home">
+      <div class="brand-logo" aria-hidden="true">
+        <span class="brand-logo-mark">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+
+      <div class="brand-text">
+        <h2>AISEL</h2>
+        <p>AI-Driven Software Engineering Lab</p>
+      </div>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="links" id="navLinks" aria-label="Primary navigation">
+
+      <a href="#home" class="active">
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="#research">
+        <i class="fa-solid fa-flask" aria-hidden="true"></i>
+        <span>Research</span>
+      </a>
+
+      <a href="#people">
+        <i class="fa-solid fa-users" aria-hidden="true"></i>
+        <span>People</span>
+      </a>
+
+      <a href="#projects">
+        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+        <span>Projects</span>
+      </a>
+
+      <a href="#publications">
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        <span>Publications</span>
+      </a>
+
+      <a href="#news">
+        <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+        <span>News &amp; Events</span>
+      </a>
+
+      <a href="#contact">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+        <span>Contact</span>
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+<main id="main">
+<!-- Each of the divs below is filled in at load time with the
+     matching file from /sections. Nothing but the mount point
+     lives here so every section can be edited independently. -->
+<div id="home-mount" style="display:contents">
+<!-- ===================== HOME ===================== -->
+<section class="hero" id="home">
+  <canvas id="particle-network"></canvas>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <svg class="hero-grid" id="heroGraph" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g id="edges" fill="none" stroke="#12182B" stroke-opacity="0.04" stroke-width="1.4"></g>
+    <g id="nodes"></g>
+  </svg>
+
+
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">AISEL
+         <span></span>
+         AI-Driven Software Engineering Lab
+      </div>
+      <h1 class="title"> Advancing Intelligent <span class="accent"> Software Engineering </span> Through AI. </h1>
+            <p class="lede">
+        <span class="lede-text">
+    AISEL explores the convergence of
+    <strong>Artificial Intelligence</strong> and
+    <strong>Software Engineering</strong>
+    to transform how software is understood, developed, and evolved.
+    Through
+    <strong>Automated Software Engineering (ASE)</strong>,
+    <strong>data-driven software repository intelligence</strong>, and
+    <strong>Natural Language-based Software Engineering (NLbSE)</strong>,
+    we develop AI systems that learn from software artifacts,
+    understand engineering context, and turn software data into actionable
+    knowledge. Our research aims to advance
+    <strong>trustworthy and human-centered AI</strong>
+    toward intelligent systems capable of assisting, reasoning, and
+    autonomously performing complex software engineering tasks.
+        </span>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#research">Explore our research</a>
+        <a class="btn btn-ghost" href="#contact">Meet Our Team</a>
+      </div>
+  <!-- ===================== LAB STATISTICS ===================== -->
+<div class="hero-stats">
+
+  <!-- Researchers -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-users"></i>
+    </div>
+
+    <h2 id="statResearchers" data-target="10">0</h2>
+
+    <span>Researchers</span>
+  </div>
+
+
+  <!-- Publications -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-book-open"></i>
+    </div>
+
+    <h2 id="statPublications" data-target="42">0</h2>
+
+    <span>Publications</span>
+  </div>
+
+
+  <!-- Projects -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-diagram-project"></i>
+    </div>
+
+    <h2 id="statProjects" data-target="5">0</h2>
+
+    <span>Research Projects</span>
+  </div>
+
+
+  <!-- Collaborations -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-globe"></i>
+    </div>
+
+    <h2 id="statCountries" data-target="9">0</h2>
+
+    <span>Global Collaborations</span>
+  </div>
+
+</div>
+    </div>
+
+    <div class="terminal">
+      <div class="term-bar">
+        <span></span><span></span><span></span>
+        <span class="term-title">aisel@lab — zsh</span>
+      </div>
+      <div class="term-body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ==========================================================
+     AISEL — FEATURED RESEARCH AREAS
+========================================================== -->
+
+<section class="featured-research" id="featured-research">
+
+  <!-- Decorative background -->
+  <div class="featured-bg-orb featured-bg-orb-1"></div>
+  <div class="featured-bg-orb featured-bg-orb-2"></div>
+
+  <div class="wrap">
+
+    <!-- Section Header -->
+    <div class="featured-head">
+
+      <div class="featured-kicker">
+        <span class="kicker-line"></span>
+        AISEL RESEARCH PORTFOLIO
+        <span class="kicker-line"></span>
+      </div>
+
+      <h2 class="featured-title">
+        Featured Research Areas
+      </h2>
+
+      <div class="featured-title-line"></div>
+
+      <p class="featured-description">
+        Discover our research directions at the intersection of
+        <strong>Artificial Intelligence</strong>,
+        <strong>Software Engineering</strong>,
+        and
+        <strong>Data-Driven Analytics</strong>.
+        AISEL develops intelligent methods and practical tools that
+        automate software engineering, understand user and developer
+        feedback, and transform complex data into actionable knowledge.
+      </p>
+
+    </div>
+
+
+    <!-- ======================================================
+         RESEARCH CAROUSEL
+    ======================================================= -->
+
+    <div class="featured-carousel">
+
+      <!-- Previous -->
+      <button
+        class="featured-arrow featured-arrow-prev"
+        id="featuredPrev"
+        type="button"
+        aria-label="Previous research area">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+
+      <!-- Viewport -->
+      <div
+        class="featured-viewport"
+        id="featuredViewport"
+        tabindex="0"
+        aria-label="Featured research areas carousel">
+
+        <div
+          class="featured-track"
+          id="featuredTrack">
+
+
+          <!-- ==================================================
+               CARD 01 — SE4AI
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+                alt="Computing hardware and artificial intelligence research">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                01
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 01
+              </div>
+
+              <h3>
+                Software Engineering for AI
+              </h3>
+
+              <p>
+                Software Engineering for AI (SE4AI) focuses on engineering
+                reliable, maintainable, and trustworthy AI-enabled software
+                systems. Our research investigates software development,
+                quality assurance, testing, monitoring, and lifecycle
+                challenges that emerge when AI becomes an integral part of
+                modern software applications.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-layer-group"></i>
+                  AI Systems
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-shield-halved"></i>
+                  Trustworthy AI
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 02 — AI4SE
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=85"
+                alt="Artificial intelligence and software engineering">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                02
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 02
+              </div>
+
+              <h3>
+                AI for Software Engineering
+              </h3>
+
+              <p>
+                AI for Software Engineering (AI4SE) applies artificial
+                intelligence, machine learning, natural language processing,
+                and large language models to support and automate software
+                engineering activities. Our research explores intelligent
+                assistance for requirements, coding, testing, maintenance,
+                software analytics, and developer decision-making.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-robot"></i>
+                  AI Agents
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-code"></i>
+                  LLM4SE
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 03 — AUTOMATED SE
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=85"
+                alt="Software code and automated software engineering">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                03
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-gears"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 03
+              </div>
+
+              <h3>
+                Automated Software Engineering
+              </h3>
+
+              <p>
+                Automated Software Engineering develops intelligent
+                techniques for automating repetitive and complex software
+                engineering tasks. Our work includes automated program
+                analysis, bug and issue classification, program repair,
+                recommendation systems, repository mining, and AI-driven
+                software development workflows.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  Automation
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                  Program Repair
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 04 — APP REVIEW ANALYTICS
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=85"
+                alt="Mobile application analytics and user reviews">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                04
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 04
+              </div>
+
+              <h3>
+                App Reviews Analytics
+              </h3>
+
+              <p>
+                App Reviews Analytics uses natural language processing and
+                machine learning to transform large collections of mobile
+                application reviews into actionable software engineering
+                knowledge. Our research analyzes user feedback to identify
+                feature requests, quality concerns, problems, sentiment,
+                sarcasm, and other signals supporting software evolution.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-comments"></i>
+                  User Feedback
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-chart-line"></i>
+                  NLP Analytics
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 05 — EHEALTH ANALYTICS
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+                alt="Healthcare analytics and artificial intelligence">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                05
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 05
+              </div>
+
+              <h3>
+                EHealth Analytics
+              </h3>
+
+              <p>
+                EHealth Analytics explores AI and data-driven approaches for
+                extracting meaningful insights from healthcare data. Our
+                research investigates intelligent analytics, predictive
+                modeling, natural language processing, and decision-support
+                techniques that can improve healthcare processes, information
+                management, and digital health services.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-chart-simple"></i>
+                  Health Analytics
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-stethoscope"></i>
+                  Digital Health
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 06 — ELECTRONIC HEALTH RECORDS
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=85"
+                alt="Electronic health records and digital healthcare">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                06
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-file-medical"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 06
+              </div>
+
+              <h3>
+                Electronic Health Records
+              </h3>
+
+              <p style="text-align: justify;">
+                Electronic Health Records (EHRs) focuses on intelligent
+                analysis and management of digitally stored clinical
+                information. Our research explores AI-based methods for
+                extracting knowledge from clinical records, supporting
+                healthcare decision-making, improving information
+                accessibility, and enabling effective use of structured and
+                unstructured health data.
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-file-medical"></i>
+                  EHR Analytics
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-database"></i>
+                  Health Data
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+
+
+      <!-- Next -->
+      <button
+        class="featured-arrow featured-arrow-next"
+        id="featuredNext"
+        type="button"
+        aria-label="Next research area">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+    </div>
+
+
+    <!-- Carousel controls -->
+
+    <div class="featured-controls">
+
+      <div
+        class="featured-dots"
+        id="featuredDots"
+        role="tablist"
+        aria-label="Research area slides">
+
+        <button class="featured-dot active" type="button" aria-label="Research areas 1"></button>
+        <button class="featured-dot" type="button" aria-label="Research areas 2"></button>
+        <button class="featured-dot" type="button" aria-label="Research areas 3"></button>
+        <button class="featured-dot" type="button" aria-label="Research areas 4"></button>
+
+      </div>
+
+    </div>
+
+
+    <!-- View all button -->
+
+    <div class="featured-action">
+
+      <a
+        href="#research"
+        class="featured-view-button">
+
+        <span class="featured-button-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </span>
+
+        <span>
+          View All Research Areas
+        </span>
+
+        <i class="fa-solid fa-arrow-right featured-button-arrow"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+</div>
+<div id="research-mount" style="display:contents">
+<section id="research-spectrum" class="research-spectrum">
+
+  <div class="rs-container">
+
+
+<!-- =====================================================
+     RESEARCH FOUNDATION HEADER
+====================================================== -->
+
+<header class="rs-main-header">
+
+  <div class="rs-pill">
+
+    <span class="rs-pill-icon">
+      <i class="fa-solid fa-layer-group"></i>
+    </span>
+
+    <span>
+      Research Foundation
+    </span>
+
+    <span class="rs-pill-sparkle">
+      <i class="fa-solid fa-sparkles"></i>
+    </span>
+
+  </div>
+
+
+  <h2 class="rs-main-title">
+    From Software Artifacts to Software Intelligence
+  </h2>
+
+
+  <div class="rs-main-line"></div>
+
+
+  <p class="rs-main-description">
+    Our research is grounded in the intersection of Artificial Intelligence
+    and Software Engineering. We investigate how software artifacts—including
+    requirements, source code, repositories, developer interactions,
+    architectural decisions, and user feedback—can be transformed into
+    actionable engineering intelligence. By combining natural language
+    processing, machine learning, deep learning, foundation models, and
+    agentic AI, we seek to move software engineering from conventional
+    automation toward context-aware, evidence-driven, and increasingly
+    autonomous decision-making.
+  </p>
+
+</header>
+
+<!-- =====================================================
+     RESEARCH FOUNDATION
+====================================================== -->
+
+<section class="rs-foundation-section">
+
+  <!-- NAVY BACKGROUND -->
+  <div
+    class="rs-foundation-grid-bg"
+    aria-hidden="true">
+  </div>
+
+  <div
+    class="rs-foundation-glow rs-foundation-glow-one"
+    aria-hidden="true">
+  </div>
+
+  <div
+    class="rs-foundation-glow rs-foundation-glow-two"
+    aria-hidden="true">
+  </div>
+
+
+  <div class="rs-foundation-grid">
+
+
+    <!-- =================================================
+         FOUNDATION 01
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-blue"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-cubes-stacked"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 01
+        </span>
+
+      </div>
+
+
+      <h3>
+        Software as an Intelligence-Rich Ecosystem
+      </h3>
+
+
+      <p>
+        Software systems are not merely collections of source code.
+        Requirements, issues, commits, pull requests, documentation,
+        architectural decisions, developer discussions, and user feedback
+        collectively represent the evolving knowledge of a software project.
+        Our research explores how to <strong>mine, integrate, and reason over
+        this distributed software knowledge</strong> to uncover patterns,
+        relationships, and engineering insights that are difficult to identify
+        through conventional analysis.
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>Software Ecosystems</span>
+        <span>Repository Mining</span>
+        <span>Knowledge Integration</span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         FOUNDATION 02
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-purple"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-language"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 02
+        </span>
+
+      </div>
+
+
+      <h3>
+        Human Language as a Gateway to Software Knowledge
+      </h3>
+
+
+      <p>
+        A substantial portion of software knowledge is expressed through
+        natural language. Requirements, issue descriptions, documentation,
+        developer discussions, and user reviews encode information about
+        functionality, quality, risks, expectations, and engineering
+        decisions. Our research investigates <strong>NLP and language-model
+        based approaches for transforming unstructured human language into
+        structured and actionable software engineering knowledge.</strong>
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>NLP4SE</span>
+        <span>Requirements</span>
+        <span>Language Models</span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         FOUNDATION 03
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-teal"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 03
+        </span>
+
+      </div>
+
+
+      <h3>
+        Evidence-Driven Engineering Intelligence
+      </h3>
+
+
+      <p>
+        AI-based software engineering should not rely solely on model
+        predictions. Our research emphasizes combining <strong>empirical
+        evidence from software repositories with machine learning, deep
+        learning, and language models</strong> to produce more informed
+        recommendations, predictions, and engineering decisions. The
+        objective is to transform historical and continuously generated
+        software data into reliable, evidence-based engineering intelligence.
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>Evidence-Based AI</span>
+        <span>Software Analytics</span>
+        <span>Empirical SE</span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         FOUNDATION 04
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-orange"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 04
+        </span>
+
+      </div>
+
+
+      <h3>
+        From Automation to Autonomous Engineering
+      </h3>
+
+
+      <p>
+        Traditional software automation primarily executes predefined rules
+        and workflows. Our research investigates the next step: systems
+        capable of <strong>understanding context, reasoning about engineering
+        problems, generating candidate solutions, evaluating alternatives,
+        and adapting their actions.</strong> This creates a pathway from
+        conventional automated tools toward intelligent, reasoning-driven,
+        and agentic software engineering systems.
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>ASE</span>
+        <span>AI Agents</span>
+        <span>Autonomous SE</span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         FOUNDATION 05
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-red"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-shield-heart"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 05
+        </span>
+
+      </div>
+
+
+      <h3>
+        Human-Centered &amp; Trustworthy AI for Software Engineering
+      </h3>
+
+
+      <p>
+        AI should augment software engineers rather than simply replace
+        human decision-making. Our research therefore considers
+        <strong>explainability, reliability, trustworthiness, human oversight,
+        and practical usefulness</strong> as important dimensions of
+        AI-driven software engineering. The goal is to create intelligent
+        systems whose recommendations and actions can be understood,
+        evaluated, and meaningfully integrated into real software development
+        practices.
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>Trustworthy AI</span>
+        <span>Human-Centered AI</span>
+        <span>Explainability</span>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         FOUNDATION 06
+    ================================================== -->
+
+    <article
+      class="rs-foundation-card rs-card-green rs-foundation-vision"
+      data-reveal>
+
+      <div class="rs-card-top">
+
+        <div class="rs-foundation-icon">
+          <i class="fa-solid fa-compass"></i>
+        </div>
+
+        <span class="rs-foundation-number">
+          FOUNDATION / 06
+        </span>
+
+      </div>
+
+
+      <h3>
+        Research Vision: From Intelligence to Autonomous SE
+      </h3>
+
+
+      <p>
+        Our long-term research vision is to develop an intelligent software
+        engineering ecosystem in which AI can continuously learn from
+        software artifacts, understand human and technical context, reason
+        over engineering evidence, and autonomously assist in software
+        development while preserving <strong>human control and trust.</strong>
+        In this vision, the software repository becomes a living source of
+        engineering knowledge, while NLP, foundation models, analytics, and
+        agentic AI provide mechanisms for understanding, reasoning, and action.
+      </p>
+
+
+      <div class="rs-foundation-tags">
+
+        <span>AI4SE</span>
+        <span>LLM4SE</span>
+        <span>Agentic Systems</span>
+
+      </div>
+
+    </article>
+
+  </div>
+
+
+
+  <!-- =================================================
+       RESEARCH PHILOSOPHY
+  ================================================== -->
+
+  <div class="rs-foundation-philosophy">
+
+    <span class="rs-philosophy-label">
+      RESEARCH PHILOSOPHY
+    </span>
+
+    <div class="rs-philosophy-content">
+
+      <i class="fa-solid fa-quote-left"></i>
+
+      <p>
+        From artifacts to knowledge, from knowledge to intelligence,
+        and from intelligence to autonomous software engineering.
+      </p>
+
+      <i class="fa-solid fa-quote-right"></i>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- =====================================================
+         METHODS
+    ====================================================== -->
+
+    <section class="rs-methods-section">
+
+      <div class="rs-methods-header">
+
+        <div>
+
+          <span class="rs-mini-label">
+            RESEARCH METHODS
+          </span>
+
+          <h3>
+            Intelligent Methods &amp; Technologies
+          </h3>
+
+        </div>
+
+      </div>
+
+
+      <div class="rs-methods-track">
+
+        <span>
+          <i class="fa-solid fa-brain"></i>
+          Transformers
+        </span>
+
+        <span>
+          <i class="fa-solid fa-robot"></i>
+          Large Language Models
+        </span>
+
+        <span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Agentic AI
+        </span>
+
+        <span>
+          <i class="fa-solid fa-diagram-project"></i>
+          Knowledge Graphs
+        </span>
+
+        <span>
+          <i class="fa-solid fa-share-nodes"></i>
+          Graph Mining
+        </span>
+
+        <span>
+          <i class="fa-solid fa-link"></i>
+          Paraphrase Mining
+        </span>
+
+        <span>
+          <i class="fa-solid fa-language"></i>
+          NLP
+        </span>
+
+        <span>
+          <i class="fa-solid fa-network-wired"></i>
+          Deep Learning
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RESEARCH APPLICATIONS / PROJECT DOMAINS
+    ====================================================== -->
+
+    <section class="rs-applications-section">
+
+
+      <header class="rs-applications-header">
+
+        <span class="rs-mini-label">
+          RESEARCH PORTFOLIO
+        </span>
+
+        <h2>
+          Research Projects
+        </h2>
+
+        <div class="rs-heading-line"></div>
+
+        <p>
+          Selected research projects demonstrating the application of
+          our methods across software engineering, intelligent systems,
+          application analytics, and related domains.
+        </p>
+
+      </header>
+
+
+      <!-- =================================================
+           DOMAIN SELECTOR
+      ================================================== -->
+
+      <div class="rs-domain-grid">
+
+
+        <!-- DOMAIN 01 -->
+
+        <button
+          class="rs-domain-card active"
+          type="button"
+          data-domain="ai4se"
+        >
+
+          <span class="rs-domain-icon rs-domain-blue">
+            <i class="fa-solid fa-microchip"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              AI for Software Engineering
+            </strong>
+
+            <small>
+              2 Projects
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+
+        <!-- DOMAIN 02 -->
+
+        <button
+          class="rs-domain-card"
+          type="button"
+          data-domain="app-review"
+        >
+
+          <span class="rs-domain-icon rs-domain-orange">
+            <i class="fa-solid fa-comments"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              App Review Analytics
+            </strong>
+
+            <small>
+              4 Projects
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+
+        <!-- DOMAIN 03 -->
+
+        <button
+          class="rs-domain-card"
+          type="button"
+          data-domain="agentic"
+        >
+
+          <span class="rs-domain-icon rs-domain-purple">
+            <i class="fa-solid fa-robot"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              Agentic AI
+            </strong>
+
+            <small>
+              3 Projects
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+
+        <!-- DOMAIN 04 -->
+
+        <button
+          class="rs-domain-card"
+          type="button"
+          data-domain="automated-se"
+        >
+
+          <span class="rs-domain-icon rs-domain-teal">
+            <i class="fa-solid fa-gears"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              Automated Software Engineering
+            </strong>
+
+            <small>
+              3 Projects
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+
+        <!-- DOMAIN 05 -->
+
+        <button
+          class="rs-domain-card"
+          type="button"
+          data-domain="data-ai"
+        >
+
+          <span class="rs-domain-icon rs-domain-indigo">
+            <i class="fa-solid fa-chart-network"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              Intelligent Data &amp; AI
+            </strong>
+
+            <small>
+              2 Projects
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+
+        <!-- DOMAIN 06 -->
+
+        <button
+          class="rs-domain-card"
+          type="button"
+          data-domain="multimodal"
+        >
+
+          <span class="rs-domain-icon rs-domain-violet">
+            <i class="fa-solid fa-layer-group"></i>
+          </span>
+
+          <span class="rs-domain-content">
+
+            <strong>
+              Multimodal AI
+            </strong>
+
+            <small>
+              1 Project
+            </small>
+
+          </span>
+
+          <i class="fa-solid fa-chevron-right rs-domain-arrow"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           ACTIVE PROJECT PANEL
+      ================================================== -->
+
+      <div class="rs-project-panel">
+
+
+        <!-- =================================================
+             PANEL HEADER
+        ================================================== -->
+
+        <div class="rs-panel-header">
+
+          <div class="rs-panel-title-group">
+
+            <div
+              class="rs-panel-main-icon"
+              id="rs-panel-icon"
+            >
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+
+
+            <div>
+
+              <h3 id="rs-panel-title">
+                AI for Software Engineering
+              </h3>
+
+              <p>
+                <i class="fa-solid fa-display"></i>
+
+                <span id="rs-panel-subtitle">
+                  Current Research Projects
+                </span>
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="#publications"
+            class="rs-all-projects-btn"
+          >
+
+            <i class="fa-solid fa-database"></i>
+
+            <span>
+              View All Projects
+            </span>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+          </a>
+
+        </div>
+
+
+        <!-- =================================================
+             ANIMATED PANEL LINE
+        ================================================== -->
+
+        <div class="rs-panel-line">
+
+          <span></span>
+
+        </div>
+
+
+        <!-- =================================================
+             PROJECT ITEMS
+        ================================================== -->
+
+        <div
+          class="rs-project-list"
+          id="rs-project-list"
+        >
+
+          <!-- JS injects projects -->
+
+        </div>
+
+
+        <!-- =================================================
+             PANEL BOTTOM LINE
+        ================================================== -->
+
+        <div class="rs-panel-bottom-line"></div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</section>
+<div id="people-mount" style="display:contents">
+<section id="people" class="aisel-people" aria-labelledby="people-title">
+  <div class="people-noise" aria-hidden="true"></div>
+  <div class="people-orb people-orb-a" aria-hidden="true"></div>
+  <div class="people-orb people-orb-b" aria-hidden="true"></div>
+  <div class="people-grid-lines" aria-hidden="true"></div>
+
+  <div class="people-shell">
+    <header class="people-hero people-reveal">
+      <div class="people-hero-topline">
+        <span class="people-eyebrow"><i class="fa-solid fa-users" aria-hidden="true"></i> AISEL Research Community</span>
+        <span class="people-status"><span class="status-dot"></span> 10 members listed</span>
+      </div>
+      <div class="people-hero-copy">
+        <div class="people-hero-kicker"><span class="kicker-line"></span> People · Research · Collaboration</div>
+        <h1 id="people-title">Meet the people behind <span>AISEL</span>.</h1>
+        <p>AISEL brings together researchers, research assistants, academic collaborators, and alumni working across AI-driven Software Engineering, natural language-based software engineering, repository analytics, requirements engineering, software architecture, cybersecurity, and intelligent systems.</p>
+      </div>
+      <div class="people-hero-meta" aria-label="Research community highlights">
+        <span><i class="fa-solid fa-brain" aria-hidden="true"></i> AI4SE</span>
+        <span><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Software Engineering</span>
+        <span><i class="fa-solid fa-globe" aria-hidden="true"></i> Global Collaboration</span>
+      </div>
+      <a class="people-hero-cta" href="#directory-title">
+        Explore the research community
+        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+      </a>
+    </header>
+
+    <section class="people-overview people-reveal" aria-labelledby="people-overview-title">
+      <div class="overview-copy">
+        <span class="section-kicker">RESEARCH COMMUNITY</span>
+        <h2 id="people-overview-title">A research network built around intelligent software engineering.</h2>
+        <p>AISEL develops data-driven and AI-enabled approaches for understanding, automating, and improving software engineering activities. The lab brings together machine learning, NLP, transformer-based language models, LLMs, repository mining, agentic AI, requirements intelligence, software quality, and empirical software engineering.</p>
+        <p>Our people contribute from different perspectives—from core lab research to international collaboration—creating a network that connects ideas, methods, datasets, tools, and real-world software engineering problems.</p>
+        <div class="overview-callout"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Explore a profile to see research interests, affiliation, and academic links.</span></div>
+      </div>
+
+      <div class="overview-stats" aria-label="AISEL people statistics">
+        <div class="overview-stat"><span class="stat-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span><strong data-count="10">0</strong><span>People Listed</span></div>
+        <div class="overview-stat"><span class="stat-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></span><strong data-count="5">0</strong><span>Core AISEL Team</span></div>
+        <div class="overview-stat"><span class="stat-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span><strong data-count="4">0</strong><span>International Collaborators</span></div>
+        <div class="overview-stat"><span class="stat-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><strong data-count="1">0</strong><span>Alumni Listed</span></div>
+      </div>
+    </section>
+
+    <section class="people-directory people-reveal" aria-labelledby="directory-title">
+      <div class="directory-heading">
+        <div>
+          <span class="section-kicker">DIRECTORY</span>
+          <h2 id="directory-title">Our people</h2>
+          <p>Filter the community or search by name, role, institution, or research area.</p>
+        </div>
+        <div class="directory-count" aria-live="polite"><strong id="peopleVisibleCount">10</strong><span>profiles shown</span></div>
+      </div>
+
+      <div class="directory-tools">
+        <div class="people-filters" role="group" aria-label="Filter people">
+          <button class="people-filter is-active" type="button" data-filter="all" aria-pressed="true"><i class="fa-solid fa-border-all" aria-hidden="true"></i> All</button>
+          <button class="people-filter" type="button" data-filter="core" aria-pressed="false"><i class="fa-solid fa-flask" aria-hidden="true"></i> Core Team</button>
+          <button class="people-filter" type="button" data-filter="collaborator" aria-pressed="false"><i class="fa-solid fa-globe" aria-hidden="true"></i> Collaborators</button>
+          <button class="people-filter" type="button" data-filter="alumni" aria-pressed="false"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Alumni</button>
+        </div>
+        <label class="people-search" for="peopleSearch">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="peopleSearch" type="search" placeholder="Search by name, role, institution, or research area…" autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+      </div>
+
+      <div class="people-empty" id="peopleEmpty" hidden>
+        <div class="empty-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+        <h3>No matching people</h3>
+        <p>Try a different name, role, institution, or research keyword.</p>
+      </div>
+
+      <div class="people-group" data-group="leadership">
+        <div class="group-heading">
+          <div class="group-label"><span class="group-number">01</span><span class="section-kicker">LEADERSHIP</span></div>
+          <div><h3>Principal Investigator</h3><p>Academic leadership, research direction, and the long-term vision of AISEL.</p></div>
+        </div>
+        <div class="people-feature-grid">
+          <article class="person-card person-card-feature people-card" data-category="core" data-search="khubaib amjad alam director associate professor al ain university abu dhabi uae automated software engineering ai4se msr requirements software architecture transformers llms software quality">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge director-badge"><i class="fa-solid fa-compass" aria-hidden="true"></i>Principal Investigator</span>
+            <div class="person-main">
+              <div class="person-avatar has-image"><img src="assets/images/people/khubaib.jpeg" alt="Dr. Khubaib Amjad Alam" loading="lazy"></div>
+              <div class="person-info">
+                <p class="person-overline">ASSOCIATE PROFESSOR · AL AIN UNIVERSITY</p>
+                <h3>Dr. Khubaib Amjad Alam</h3>
+                <p class="person-role">Principal Investigator, AISEL Lab</p>
+                <p class="person-affiliation"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Abu Dhabi, United Arab Emirates</p>
+                <div class="person-tags"><span>AI4SE</span><span>Automated SE</span><span>MSR</span><span>Requirements</span><span>Architecture</span><span>LLMs</span></div>
+              </div>
+            </div>
+            <p class="person-bio">Dr. Khubaib Amjad Alam is an Associate Professor at Al Ain University and Principal Investigator of AISEL. His research interests include Automated Software Engineering, AI methodologies for Software Engineering, natural language-based Software Engineering, requirements engineering, software architecture, software maintenance and evolution, software quality assurance, transformer-based language models, data-driven analytics, and decision support systems.</p>
+            <div class="person-footer">
+              <button class="profile-more" type="button" data-profile="khubaib" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <div class="person-links"><a href="https://scholar.google.com/citations?hl=en&user=s_BMc5YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Khubaib Alam Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="https://engineering.aau.ac.ae/en/staff/khubaib-Alam" target="_blank" rel="noopener noreferrer" aria-label="Khubaib Alam official profile"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="mailto:khubaib.alam@aau.ac.ae" aria-label="Email Khubaib Alam"><i class="fa-solid fa-envelope"></i></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="people-group" data-group="core">
+        <div class="group-heading">
+          <div class="group-label"><span class="group-number">02</span><span class="section-kicker">CORE RESEARCH TEAM</span></div>
+          <div><h3>Researchers &amp; Research Assistants</h3><p>Researchers contributing to AI-driven Software Engineering, NLP, software analytics, and intelligent systems.</p></div>
+        </div>
+        <div class="people-grid people-grid-core">
+          <article class="person-card people-card" data-category="core" data-search="muhammad haroon senior researcher aisel ai4se llms transformers agentic ai nlp repository mining app reviews software quality requirements">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge senior-badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Senior Researcher</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/haroon.jpeg" alt="Muhammad Haroon" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Muhammad Haroon</h3><p class="person-role">Senior Researcher</p><p class="person-affiliation">AISEL - Lab</p><div class="person-tags"><span>AI4SE</span><span>LLMs</span><span>Transformers</span><span>Agentic AI</span><span>NLP</span><span>MSR</span></div><p class="person-bio">Muhammad Haroon is a Senior Researcher at AISEL working on AI-driven Software Engineering and natural language-based software engineering. His work explores language models, agentic AI, repository mining, app review analytics, software quality analysis, requirements intelligence, and automated software engineering tasks.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="haroon" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://scholar.google.com/citations?hl=en&user=j9QcX1YAAAAJ&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Haroon Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="https://pk.linkedin.com/in/muhammadharoon047" target="_blank" rel="noopener noreferrer" aria-label="Muhammad Haroon LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:mharoonawan047@gmail.com" aria-label="Email Muhammad Haroon"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="core" data-search="momina kamal cheema research associate aisel app reviews transformers nlp ai4se natural language software engineering">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge researcher-badge"><i class="fa-solid fa-flask" aria-hidden="true"></i> Research Associate</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/momina.jpeg" alt="Momina Kamal" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Momina Kamal Cheema</h3><p class="person-role">Research Associate</p><p class="person-affiliation">AISEL - Lab</p><div class="person-tags"><span>App Reviews</span><span>Transformers</span><span>NLP</span><span>AI4SE</span></div><p class="person-bio">Momina Kamal Cheema is a Research Associate at AISEL. Her research contributions include natural language-based Software Engineering and the analysis of mobile app reviews using transformer-based language models, with a focus on turning complex user feedback into useful software engineering insights.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="momina" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://scholar.google.com/citations?user=n3SmFKIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Momina Kamal Cheema Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="https://pk.linkedin.com/in/momina-kamal-cheema-b738261ba" target="_blank" rel="noopener noreferrer" aria-label="Momina Kamal LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:mominacheema14@gmail.com" aria-label="Email Momina Kamal Cheema"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="core" data-search="maryam hussain research associate instructor fast nuces app reviews software quality requirements human centered ai data analytics">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge researcher-badge"><i class="fa-solid fa-flask" aria-hidden="true"></i> Research Associate</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/maryam.jpeg" alt="Maryam Hussain" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Maryam Hussain</h3><p class="person-role">Research Associate</p><p class="person-affiliation">AISEL - Lab</p><div class="person-tags"><span>App Reviews</span><span>Software Quality</span><span>AI4RE</span><span>Data Analytics</span></div><p class="person-bio">Maryam Hussain is a Software Engineering researcher and instructor whose work includes data-driven software feedback analysis, app review analytics, software quality concerns, and human-centered AI for Requirements Engineering. She also contributes to collaborative research communication and AI-enabled Software Engineering initiatives.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="maryam" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://scholar.google.com/citations?user=D5jwkQEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Maryam Hussain Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="https://pk.linkedin.com/in/maryam-hussain-9a675a238" target="_blank" rel="noopener noreferrer" aria-label="Maryam Hussain LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:maryam.hussain@isb.nu.edu.pk" aria-label="Email Maryam Hussain"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="core" data-search="katrina bodani research assistant fast nuces multimodal ai rag llms software systems clip">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge assistant-badge"><i class="fa-solid fa-flask" aria-hidden="true"></i> Research Assistant</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/katrina.png" alt="Katrina Bodani" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Katrina Bodani</h3><p class="person-role">Research Assistant</p><p class="person-affiliation">AISEL - Lab</p><div class="person-tags"><span>RAG</span><span>Multimodal AI</span><span>LLMs</span><span>AI Systems</span></div><p class="person-bio">Katrina Bodani is a Research Assistant at AISEL. Her public project work includes multimodal AI, retrieval-augmented generation, joint text-image embeddings, and LLM-based applications. She contributes to applied AI research and intelligent systems that combine language, retrieval, and multimodal information.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="katrina" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://pk.linkedin.com/in/katrinabodani" target="_blank" rel="noopener noreferrer" aria-label="Katrina Bodani LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:i220545@nu.edu.pk" aria-label="Email Katrina Bodani"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="people-group" data-group="collaborators">
+        <div class="group-heading">
+          <div class="group-label"><span class="group-number">03</span><span class="section-kicker">GLOBAL RESEARCH NETWORK</span></div>
+          <div><h3>International Collaborators</h3><p>Academic partners extending AISEL across security, requirements, architecture, intelligent systems, and data-driven software engineering.</p></div>
+        </div>
+        <div class="people-grid people-grid-collab">
+          <article class="person-card people-card" data-category="collaborator" data-search="liliana pasquale associate professor university college dublin ireland secure software engineering security cybersecurity adaptive security privacy requirements">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge collaborator-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Collaborator</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/lilliana.jpeg" alt="liliana Pasquale" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Dr. Liliana Pasquale</h3><p class="person-role">Associate Professor</p><p class="person-affiliation">UNIVERSITY COLLEGE DUBLIN · IRELAND</p><div class="person-tags"><span>Secure SE</span><span>Adaptive Security</span><span>Cybersecurity</span><span>Privacy</span></div><p class="person-bio">Dr. Liliana Pasquale is an Associate Professor at University College Dublin and a funded investigator at Lero. Her research focuses on adaptive, human-centred security systems that detect, diagnose, and respond to evolving cyber threats while preserving human agency and ethical oversight. She also works on ransomware defence and regulatory-compliant software engineering.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="liliana" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://lpasquale.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Liliana Pasquale website"><i class="fa-solid fa-globe"></i></a><a href="https://scholar.google.com/citations?hl=en&user=N8uPjssAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Liliana Pasquale Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="mailto:liliana.pasquale@ucd.ie" aria-label="Email Liliana Pasquale"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="collaborator" data-search="imen benzarti professor ets montreal canada intelligent autonomous systems software systems multimedia cybersecurity requirements customer user experience model driven engineering iot quantum">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge collaborator-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Collaborator</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/imen.jpeg" alt="Imen Benzarti" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Dr. Imen Benzarti</h3><p class="person-role">Professor · Software &amp; IT Engineering</p><p class="person-affiliation">ÉTS MONTRÉAL · CANADA</p><div class="person-tags"><span>Requirements</span><span>Human-Centred SE</span><span>IoT</span><span>Intelligent Systems</span></div><p class="person-bio">Dr. Imen Benzarti is a professor in the Software and Information Technology Engineering Department at ÉTS Montréal. Her research areas include intelligent and autonomous systems, software systems, multimedia and cybersecurity, requirements engineering, customer and user experience, model-driven software engineering, and Internet of Things.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="imen" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://www.etsmtl.ca/en/study-at-ets/professors/imbenzarti" target="_blank" rel="noopener noreferrer" aria-label="Imen Benzarti official profile"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://scholar.google.com/citations?hl=fr&user=i0lnR_IAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Imen Benzarti Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="mailto:imen.benzarti@etsmtl.ca" aria-label="Email Imen Benzarti"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="collaborator" data-search="nadeem abbas senior lecturer associate professor linnaeus university sweden self adaptive software dynamic software product lines requirements software reuse software architecture digital health responsible design ai decision making">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge collaborator-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Collaborator</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/nadeem.jpeg" alt="Nadeem Abbas" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Dr. Nadeem Abbas</h3><p class="person-role">Associate Professor / Senior Lecturer</p><p class="person-affiliation">LINNAEUS UNIVERSITY · SWEDEN</p><div class="person-tags"><span>Self-Adaptive SE</span><span>Requirements</span><span>Architecture</span><span>Digital Health</span></div><p class="person-bio">Dr. Nadeem Abbas is an Associate Professor in Software Engineering at Linnaeus University, Sweden. His research focuses on self-adaptive software systems, dynamic software product lines, requirements engineering, software reuse, software architecture and design, and architectural analysis and reasoning, with growing emphasis on AI-supported decision-making and responsible system design.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="nadeem" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://www.lnu.se/en/staff/nadeem.abbas/" target="_blank" rel="noopener noreferrer" aria-label="Nadeem Abbas official profile"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://scholar.google.com/citations?hl=en&user=EHbIi1sAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Nadeem Abbas Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="mailto:nadeem.abbas@lnu.se" aria-label="Email Nadeem Abbas"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+
+          <article class="person-card people-card" data-category="collaborator" data-search="haroon mahmood associate professor al ain university abu dhabi information security iot security digital forensics differential privacy artificial intelligence uav software defined networking llms">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge collaborator-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i> Collaborator</span>
+            <div class="person-avatar has-image"><img src="assets/images/people/haroonm.jpeg" alt="Haroon Mehmood" loading="lazy"></div>
+            <div class="person-content"><p class="person-overline"></p><h3>Dr. Haroon Mahmood</h3><p class="person-role">Associate Professor</p><p class="person-affiliation">Al Ain University · Abu Dhabi</p><div class="person-tags"><span>AI</span><span>LLMs</span><span>IoT Security</span><span>Digital Forensics</span></div><p class="person-bio">Dr. Haroon Mahmood is an Associate Professor at Al Ain University. His research interests include information security, Internet of Things security and reliability, security auditing and vulnerability analysis, digital forensics, differential privacy, artificial intelligence, UAV mobility modelling, software-defined networking, and large language models.</p></div>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="haroon-mahmood" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://www.aau.ac.ae/en/staff/haroon-mahmood" target="_blank" rel="noopener noreferrer" aria-label="Haroon Mahmood official profile"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://scholar.google.com/citations?hl=en&user=TJv3l2QAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Haroon Mahmood Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="mailto:haroon.mahmood@aau.ac.ae" aria-label="Email Haroon Mahmood"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="people-group people-group-alumni" data-group="alumni">
+        <div class="group-heading">
+          <div class="group-label"><span class="group-number">04</span><span class="section-kicker">ALUMNI NETWORK</span></div>
+          <div><h3>AISEL Alumni</h3><p>Former members who remain part of the wider research community and continue their academic or professional journeys.</p></div>
+        </div>
+        <div class="people-feature-grid">
+          <article class="person-card person-card-feature people-card" data-category="alumni" data-search="nadia bashir ms student aisel alumni software engineering ai research nlp">
+            <div class="card-accent"></div><div class="card-glow"></div><div class="card-shine"></div>
+            <span class="person-badge alumni-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Alumni</span>
+            <div class="person-main">
+              <div class="person-avatar has-image"><img src="assets/images/people/nadia.jpeg" alt="Nadia Bashir" loading="lazy"></div>
+              <div class="person-info"><p class="person-overline"></p><h3>Nadia Bashir</h3><p class="person-role">MS Student · AISEL Alumni</p><p class="person-affiliation">Former AISEL Research Member</p><div class="person-tags"><span>Software Engineering</span><span>AI Research</span><span>NLP</span></div></div>
+            </div>
+            <p class="person-bio">Nadia Bashir is listed in the supplied AISEL alumni record as an MS student and former member of the research community. The available profile information does not specify a current affiliation or additional research interests, so this profile intentionally avoids adding unverified details.</p>
+            <div class="person-footer"><button class="profile-more" type="button" data-profile="nadia" aria-haspopup="dialog"><span>View profile</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="person-links"><a href="https://scholar.google.com/citations?user=oXb9TmcAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Nadia Bashir Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a><a href="https://www.linkedin.com/in/nadia-bashir-658152292/" target="_blank" rel="noopener noreferrer" aria-label="Nadia Bashir LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="mailto:nadiabashir384@gmail.com" aria-label="Email Nadia Bashir"><i class="fa-solid fa-envelope"></i></a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <dialog class="people-modal" id="peopleModal" aria-labelledby="peopleModalTitle">
+    <div class="modal-shell">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close profile"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <div class="modal-top"><span class="modal-badge" id="peopleModalBadge">Profile</span><span class="modal-kicker" id="peopleModalKicker">AISEL</span></div>
+      <div class="modal-profile-head"><div class="modal-avatar" id="peopleModalAvatar">AI</div><div><h2 id="peopleModalTitle">Profile</h2><p id="peopleModalRole"></p><p id="peopleModalAffiliation"></p></div></div>
+      <div class="modal-divider"></div>
+      <p class="modal-bio" id="peopleModalBio"></p>
+      <div class="modal-tags" id="peopleModalTags"></div>
+      <div class="modal-actions" id="peopleModalActions"></div>
+    </div>
+  </dialog>
+</section>
+</div>
+<div id="publications-mount" style="display:contents">
+<!-- =========================================================
+     AISEL — PUBLICATIONS
+     Premium research-publication library
+========================================================= -->
+
+<section id="publications" class="publications-section" aria-labelledby="publications-title">
+
+  <!-- HERO -->
+  <header class="pub-hero">
+    <div class="pub-hero-grid" aria-hidden="true"></div>
+    <div class="pub-hero-glow pub-hero-glow-1" aria-hidden="true"></div>
+    <div class="pub-hero-glow pub-hero-glow-2" aria-hidden="true"></div>
+    <div class="pub-hero-shape pub-hero-shape-1" aria-hidden="true"></div>
+    <div class="pub-hero-shape pub-hero-shape-2" aria-hidden="true"></div>
+    <div class="pub-hero-dots" aria-hidden="true"></div>
+
+    <div class="wrap pub-hero-content">
+      <div class="pub-hero-icon pub-reveal" aria-hidden="true">
+        <i class="fa-solid fa-book-open"></i>
+      </div>
+
+      <div class="pub-hero-kicker pub-reveal">
+        <span></span>
+        04 · RESEARCH OUTPUT
+        <span></span>
+      </div>
+
+      <h1 id="publications-title" class="pub-hero-title pub-reveal">
+        Research <span>Publications</span>
+      </h1>
+
+      <p class="pub-hero-description pub-reveal">
+        Explore AISEL's research contributions across Artificial Intelligence,
+        Automated Software Engineering, Natural Language-Based Software Engineering,
+        Repository Analytics, Requirements Engineering, Software Quality, and Intelligent Systems.
+      </p>
+
+      <div class="pub-hero-tags pub-reveal">
+        <span><i class="fa-solid fa-brain"></i> Artificial Intelligence</span>
+        <span><i class="fa-solid fa-code"></i> Automated SE</span>
+        <span><i class="fa-solid fa-language"></i> NLP &amp; LLMs</span>
+        <span><i class="fa-solid fa-diagram-project"></i> Repository Analytics</span>
+      </div>
+
+      <a class="pub-scroll-btn pub-reveal" href="#publication-library">
+        Explore Publications
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+
+    <div class="pub-scroll-indicator" aria-hidden="true"><span></span></div>
+  </header>
+
+  <!-- LIBRARY -->
+  <main id="publication-library" class="pub-library">
+    <div class="wrap">
+
+      <div class="pub-intro-section pub-reveal">
+        <div>
+          <div class="pub-section-kicker"><span></span> RESEARCH LIBRARY</div>
+          <h2>Our Publication Record</h2>
+        </div>
+        <p>
+          Browse the latest AISEL publications by type, year, author, venue,
+          or keyword. Each entry opens a concise research record with a direct
+          link to the publication.
+        </p>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="pub-search-panel pub-reveal">
+        <div class="pub-search-box">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="pubSearch"
+            placeholder="Search publications by title, author, venue, or keyword..."
+            autocomplete="off"
+            aria-label="Search publications"
+          />
+          <button type="button" id="pubSearchClear" class="pub-search-clear" aria-label="Clear search">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="pub-search-shortcut" aria-hidden="true">
+          <span>Focus</span><kbd>⌘</kbd><kbd>K</kbd>
+        </div>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="pub-filter-shell pub-reveal">
+        <div class="pub-filter-tabs" role="tablist" aria-label="Publication type">
+          <button type="button" class="pub-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            All <span class="pub-filter-count" data-count="all">0</span>
+          </button>
+          <button type="button" class="pub-filter-btn" data-filter="journal" role="tab" aria-selected="false">
+            Journals <span class="pub-filter-count" data-count="journal">0</span>
+          </button>
+          <button type="button" class="pub-filter-btn" data-filter="conference" role="tab" aria-selected="false">
+            Conferences <span class="pub-filter-count" data-count="conference">0</span>
+          </button>
+          <button type="button" class="pub-filter-btn" data-filter="workshop" role="tab" aria-selected="false">
+            Workshops <span class="pub-filter-count" data-count="workshop">0</span>
+          </button>
+        </div>
+
+        <div class="pub-filter-divider" aria-hidden="true"></div>
+
+        <div class="pub-year-filters" aria-label="Publication year">
+          <span class="pub-filter-label">YEAR</span>
+          <button type="button" class="pub-year-btn active" data-year="all">All</button>
+          <button type="button" class="pub-year-btn" data-year="2025">2025</button>
+          <button type="button" class="pub-year-btn" data-year="2024">2024</button>
+        </div>
+
+        <button type="button" id="pubReset" class="pub-reset-btn">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </button>
+      </div>
+
+      <!-- STATS -->
+      <div class="pub-stats pub-reveal">
+        <article class="pub-stat pub-stat-featured">
+          <div class="pub-stat-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div>
+            <strong class="pub-counter" data-target="42" data-suffix="+">0</strong>
+            <span>Total Publications</span>
+          </div>
+          <div class="pub-stat-spark" aria-hidden="true"></div>
+        </article>
+
+        <article class="pub-stat">
+          <div class="pub-stat-icon"><i class="fa-solid fa-quote-right"></i></div>
+          <div>
+            <strong class="pub-counter" data-target="1197" data-suffix="+">0</strong>
+            <span>Citations</span>
+          </div>
+          <div class="pub-stat-note">Google Scholar</div>
+        </article>
+
+        <article class="pub-stat">
+          <div class="pub-stat-icon"><i class="fa-solid fa-book"></i></div>
+          <div>
+            <strong class="pub-counter" data-target="8">0</strong>
+            <span>Journal Articles</span>
+          </div>
+        </article>
+
+        <article class="pub-stat">
+          <div class="pub-stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div>
+            <strong class="pub-counter" data-target="19">0</strong>
+            <span>Conference / Workshop</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- RESULT META -->
+      <div class="pub-result-bar pub-reveal">
+        <div>
+          <span>Showing <strong id="pubVisibleCount">0</strong> selected publications</span>
+          <span class="pub-result-dot">•</span>
+          <span id="pubResultDescription">Recent research · 2024–2025</span>
+        </div>
+        <div class="pub-result-status">
+          <span class="pub-live-dot"></span> Live filters
+        </div>
+      </div>
+
+      <!-- YEARS -->
+      <div id="pubYearList" class="pub-year-list" aria-live="polite"></div>
+
+      <!-- EMPTY -->
+      <div id="pubEmpty" class="pub-empty" hidden>
+        <div class="pub-empty-icon"><i class="fa-solid fa-file-circle-question"></i></div>
+        <h3>No publications found</h3>
+        <p>Try a different keyword or clear the current filters.</p>
+        <button type="button" id="pubEmptyReset">Reset Filters</button>
+      </div>
+
+      <!-- SOURCE -->
+      <div class="pub-source pub-reveal">
+        <div class="pub-source-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="pub-source-content">
+          <strong>Complete Research Profile</strong>
+          <p>The page shows selected recent records. Visit Google Scholar for the complete publication history.</p>
+        </div>
+        <a
+          href="https://scholar.google.com/citations?hl=en&user=s_BMc5YAAAAJ&view_op=list_works&sortby=pubdate"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pub-source-btn"
+        >
+          Google Scholar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <dialog id="publicationModal" class="publication-modal" aria-labelledby="publicationModalTitle">
+    <div class="publication-modal-inner">
+      <button type="button" id="publicationModalClose" class="publication-modal-close" aria-label="Close publication details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="publication-modal-meta">
+        <span id="publicationModalType">Journal Article</span>
+        <span id="publicationModalYear">2025</span>
+      </div>
+
+      <h2 id="publicationModalTitle">Publication Title</h2>
+      <div class="publication-modal-divider"></div>
+
+      <div class="publication-modal-info">
+        <div>
+          <span>AUTHORS</span>
+          <p id="publicationModalAuthors"></p>
+        </div>
+        <div>
+          <span>VENUE</span>
+          <p id="publicationModalVenue"></p>
+        </div>
+      </div>
+
+      <div class="publication-modal-actions">
+        <button type="button" id="publicationModalCopy" class="publication-copy-btn">
+          <i class="fa-regular fa-copy"></i> Copy Citation
+        </button>
+        <a href="#" id="publicationModalLink" target="_blank" rel="noopener noreferrer" class="publication-view-btn">
+          View Publication <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+</section>
+
+</div>
+
+<!-- =========================================================
+     AISEL — PROJECTS
+     Premium Research Project Portfolio
+========================================================= -->
+
+<div id="projects-mount" style="display:contents">
+
+<section id="projects" aria-labelledby="projects-title">
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <header class="projects-hero">
+
+    <div
+      class="projects-hero-grid"
+      aria-hidden="true">
+    </div>
+
+    <div
+      class="projects-hero-glow projects-hero-glow-1"
+      aria-hidden="true">
+    </div>
+
+    <div
+      class="projects-hero-glow projects-hero-glow-2"
+      aria-hidden="true">
+    </div>
+
+    <div
+      class="projects-hero-shape projects-hero-shape-1"
+      aria-hidden="true">
+    </div>
+
+    <div
+      class="projects-hero-shape projects-hero-shape-2"
+      aria-hidden="true">
+    </div>
+
+    <div
+      class="projects-hero-shape projects-hero-shape-3"
+      aria-hidden="true">
+    </div>
+
+
+    <div class="wrap projects-hero-content">
+
+      <!-- Rocket -->
+
+      <div
+        class="projects-hero-icon projects-reveal"
+        aria-hidden="true">
+
+        <i class="fa-solid fa-rocket"></i>
+
+      </div>
+
+
+      <!-- Kicker -->
+
+      <div class="projects-hero-kicker projects-reveal">
+
+        <span></span>
+
+        05 · INTELLIGENT RESEARCH PROJECTS
+
+        <span></span>
+
+      </div>
+
+
+      <!-- Title -->
+
+      <h1
+        id="projects-title"
+        class="projects-hero-title projects-reveal">
+
+        Our <span>Projects</span>
+
+      </h1>
+
+
+      <!-- Description -->
+
+      <p class="projects-hero-description projects-reveal">
+
+        Explore our research projects that combine
+        <strong>Transformers</strong>,
+        <strong>Large Language Models</strong>,
+        <strong>Agentic AI</strong>,
+        and
+        <strong>Inference Optimization</strong>
+        to solve challenging software-engineering problems.
+
+      </p>
+
+
+      <!-- Research technologies -->
+
+      <div class="projects-hero-tags projects-reveal">
+
+        <span>
+          <i class="fa-solid fa-microchip"></i>
+          Transformers
+        </span>
+
+        <span>
+          <i class="fa-solid fa-brain"></i>
+          LLMs
+        </span>
+
+        <span>
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Agentic AI
+        </span>
+
+        <span>
+          <i class="fa-solid fa-gauge-high"></i>
+          Inference Optimization
+        </span>
+
+      </div>
+
+
+      <!-- Scroll -->
+
+      <a
+        class="projects-scroll-btn projects-reveal"
+        href="#project-library">
+
+        Explore Research Projects
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+      </a>
+
+    </div>
+
+
+    <!-- Scroll indicator -->
+
+    <div
+      class="projects-scroll-indicator"
+      aria-hidden="true">
+
+      <span></span>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       PROJECT LIBRARY
+  ======================================================== -->
+
+  <main
+    id="project-library"
+    class="project-library">
+
+    <div class="wrap">
+
+
+      <!-- =================================================
+           INTRO
+      ================================================== -->
+
+      <div class="project-intro projects-reveal">
+
+        <div>
+
+          <div class="project-section-kicker">
+
+            <span></span>
+
+            RESEARCH PORTFOLIO
+
+          </div>
+
+
+          <h2>
+
+            Intelligent Systems,
+
+            <br>
+
+            <span>
+              Built for Software Engineering.
+            </span>
+
+          </h2>
+
+        </div>
+
+
+        <p>
+
+          Our projects address practical software-engineering
+          challenges through intelligent language models,
+          deep learning, agentic reasoning, and efficient
+          AI inference.
+
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           SEARCH + FILTERS
+      ================================================== -->
+
+      <div class="project-controls projects-reveal">
+
+
+        <!-- Search -->
+
+        <div class="project-search">
+
+          <i
+            class="fa-solid fa-magnifying-glass"
+            aria-hidden="true">
+          </i>
+
+
+          <input
+            id="projectSearch"
+            type="search"
+            placeholder="Search projects..."
+            aria-label="Search projects"
+            autocomplete="off"
+          />
+
+
+          <button
+            id="projectSearchClear"
+            type="button"
+            aria-label="Clear search">
+
+            <i class="fa-solid fa-xmark"></i>
+
+          </button>
+
+        </div>
+
+
+        <!-- Filters -->
+
+        <div
+          class="project-filters"
+          role="tablist"
+          aria-label="Project categories">
+
+
+          <button
+            class="project-filter active"
+            type="button"
+            data-filter="all"
+            aria-selected="true">
+
+            All Projects
+
+            <span
+              data-project-count="all">
+              0
+            </span>
+
+          </button>
+
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="software-quality"
+            aria-selected="false">
+
+            Software Quality
+
+            <span
+              data-project-count="software-quality">
+              0
+            </span>
+
+          </button>
+
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="app-analytics"
+            aria-selected="false">
+
+            App Review Analytics
+
+            <span
+              data-project-count="app-analytics">
+              0
+            </span>
+
+          </button>
+
+
+          <button
+            class="project-filter"
+            type="button"
+            data-filter="agentic-se"
+            aria-selected="false">
+
+            Agentic SE
+
+            <span
+              data-project-count="agentic-se">
+              0
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           RESULT BAR
+      ================================================== -->
+
+      <div class="project-result-bar projects-reveal">
+
+        <span>
+
+          Showing
+
+          <strong id="projectVisibleCount">
+            0
+          </strong>
+
+          of
+
+          <strong id="projectTotalCount">
+            0
+          </strong>
+
+          projects
+
+        </span>
+
+
+        <span class="project-live">
+
+          <i></i>
+
+          Research portfolio
+
+        </span>
+
+      </div>
+
+
+      <!-- =================================================
+           PROJECT GRID
+      ================================================== -->
+
+      <div
+        id="projectGrid"
+        class="project-grid"
+        aria-live="polite">
+      </div>
+
+
+      <!-- EMPTY STATE -->
+
+      <div
+        id="projectEmpty"
+        class="project-empty"
+        hidden>
+
+        <div class="project-empty-icon">
+
+          <i class="fa-solid fa-folder-open"></i>
+
+        </div>
+
+
+        <h3>
+          No matching projects
+        </h3>
+
+
+        <p>
+          Try another keyword or clear the
+          current filter.
+        </p>
+
+
+        <button
+          id="projectEmptyReset"
+          type="button">
+
+          Reset Filters
+
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           FOOTER CARD
+      ================================================== -->
+
+      <div
+        class="project-footer-card projects-reveal">
+
+        <div class="project-footer-icon">
+
+          <i class="fa-solid fa-flask-vial"></i>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Research-driven by design.
+          </strong>
+
+          <p>
+
+            Every project connects a practical
+            software-engineering problem with an
+            experimental AI research direction.
+
+          </p>
+
+        </div>
+
+
+        <a href="#contact">
+
+          Discuss a Collaboration
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =======================================================
+       PROJECT DETAILS MODAL
+  ======================================================== -->
+
+  <dialog
+    id="projectModal"
+    class="project-modal"
+    aria-labelledby="projectModalTitle">
+
+
+    <div class="project-modal-inner">
+
+
+      <button
+        id="projectModalClose"
+        class="project-modal-close"
+        type="button"
+        aria-label="Close">
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <div class="project-modal-top">
+
+
+        <div
+          id="projectModalMark"
+          class="project-modal-mark">
+
+          <i class="fa-solid fa-brain"></i>
+
+        </div>
+
+
+        <div>
+
+          <span
+            id="projectModalCategory"
+            class="project-modal-category">
+
+            Research Project
+
+          </span>
+
+
+          <span
+            id="projectModalStatus"
+            class="project-modal-status">
+
+            <i></i>
+
+            Active Research
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <h2 id="projectModalTitle">
+        Project Title
+      </h2>
+
+
+      <p
+        id="projectModalDescription"
+        class="project-modal-description">
+      </p>
+
+
+      <div class="project-modal-divider"></div>
+
+
+      <div class="project-modal-section">
+
+        <span>
+          RESEARCH STACK
+        </span>
+
+
+        <div
+          id="projectModalTags"
+          class="project-modal-tags">
+        </div>
+
+      </div>
+
+
+      <div class="project-modal-section">
+
+        <span>
+          KEY CONTRIBUTIONS
+        </span>
+
+
+        <ul
+          id="projectModalFeatures"
+          class="project-modal-features">
+        </ul>
+
+      </div>
+
+
+      <div class="project-modal-bottom">
+
+        <span
+          id="projectModalFocus"
+          class="project-modal-focus">
+        </span>
+
+
+        <button
+          id="projectModalDone"
+          type="button">
+
+          Close Details
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </dialog>
+
+</section>
+
+</div>
+
+<div id="news-mount" style="display:contents">
+
+<section id="news">
+
+  <!-- ==========================================================
+       AISEL NEWS HERO
+  =========================================================== -->
+  <div class="news-hero" aria-labelledby="newsHeroTitle">
+
+    <div class="news-hero-grid" aria-hidden="true"></div>
+    <div class="news-hero-glow news-hero-glow-1" aria-hidden="true"></div>
+    <div class="news-hero-glow news-hero-glow-2" aria-hidden="true"></div>
+    <div class="news-hero-orbit news-hero-orbit-1" aria-hidden="true"></div>
+    <div class="news-hero-orbit news-hero-orbit-2" aria-hidden="true"></div>
+
+    <div class="news-hero-particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="news-hero-content">
+      <div class="news-hero-kicker">
+        <span class="news-hero-line"></span>
+        <span>AISEL · NEWS &amp; ACHIEVEMENTS</span>
+        <span class="news-hero-line"></span>
+      </div>
+
+      <div class="news-hero-icon" aria-hidden="true">
+        <i class="fa-regular fa-newspaper"></i>
+      </div>
+
+      <h1 id="newsHeroTitle">
+        News &amp; <span>Breakthroughs</span>
+      </h1>
+
+      <div class="news-hero-divider" aria-hidden="true"></div>
+
+      <p>
+        Follow AISEL's latest research milestones, workshop acceptances,
+        collaborations, and initiatives advancing AI-driven Software Engineering.
+      </p>
+
+      <div class="news-hero-tags" aria-label="News categories">
+        <span><i class="fa-solid fa-flask"></i> Research</span>
+        <span><i class="fa-solid fa-users"></i> Collaboration</span>
+        <span><i class="fa-solid fa-lightbulb"></i> Innovation</span>
+      </div>
+
+      <a href="#news-highlights" class="news-hero-button">
+        <span>Explore Latest Updates</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+
+    <div class="news-hero-scroll" aria-hidden="true">
+      <span></span>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================
+       NEWS CONTENT
+  =========================================================== -->
+  <div id="news-highlights" class="news-content-section">
+    <div class="wrap">
+
+      <div class="news-header reveal">
+        <div class="news-kicker">
+          <span></span>
+          AISEL · LATEST UPDATES
+          <span></span>
+        </div>
+
+        <h2>Latest News &amp; Achievements</h2>
+        <div class="news-title-line"></div>
+
+        <p>
+          AISEL contributes to the international Software Engineering research
+          community through workshop organization, conference collaboration,
+          research initiatives, and scientific activities that advance
+          Artificial Intelligence for Software Engineering.
+        </p>
+      </div>
+
+      <div class="news-slider reveal" data-news-slider>
+        <button class="news-btn prev" id="prevNews" type="button" aria-label="Previous news">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="news-window" id="newsWindow" tabindex="0" aria-label="AISEL news carousel">
+          <div class="news-track" id="newsTrack">
+
+            <article class="news-card is-active">
+              <div class="news-card-glow"></div>
+              <div class="news-card-shine"></div>
+              <div class="news-card-inner">
+                <div class="news-top">
+                  <span class="news-type"><i class="fa-solid fa-code-branch"></i> WORKSHOP</span>
+                  <span class="news-year">2026</span>
+                </div>
+
+                <div class="news-content">
+                  <span class="news-label">RESEARCH MILESTONE / 01</span>
+                  <h3>HCARE 2026 Accepted</h3>
+                  <div class="news-date">
+                    <i class="fa-regular fa-calendar"></i><span>2026</span>
+                  </div>
+                  <p>
+                    The Human-Centered AI for Requirements Engineering (HCARE 2026)
+                    workshop has been accepted at the IEEE International Requirements
+                    Engineering Conference.
+                  </p>
+                </div>
+
+                <div class="news-footer">
+                  <span><i class="fa-solid fa-robot"></i> AI for Requirements Engineering</span>
+                  <a href="#" class="news-link" data-news-link>
+                    Learn More <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-glow"></div>
+              <div class="news-card-shine"></div>
+              <div class="news-card-inner">
+                <div class="news-top">
+                  <span class="news-type"><i class="fa-solid fa-layer-group"></i> WORKSHOP</span>
+                  <span class="news-year">2026</span>
+                </div>
+
+                <div class="news-content">
+                  <span class="news-label">RESEARCH MILESTONE / 02</span>
+                  <h3>IDEA-Arch 2026 Accepted</h3>
+                  <div class="news-date">
+                    <i class="fa-regular fa-calendar"></i><span>2026</span>
+                  </div>
+                  <p>
+                    Intelligent and Data-Driven Engineering for Software Architecture
+                    workshop accepted at ECSA 2026.
+                  </p>
+                </div>
+
+                <div class="news-footer">
+                  <span><i class="fa-solid fa-sitemap"></i> Software Architecture</span>
+                  <a href="#" class="news-link" data-news-link>
+                    Learn More <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-glow"></div>
+              <div class="news-card-shine"></div>
+              <div class="news-card-inner">
+                <div class="news-top">
+                  <span class="news-type"><i class="fa-solid fa-microchip"></i> WORKSHOP</span>
+                  <span class="news-year">2027</span>
+                </div>
+
+                <div class="news-content">
+                  <span class="news-label">RESEARCH MILESTONE / 03</span>
+                  <h3>TEXTUAL 2027 Accepted</h3>
+                  <div class="news-date">
+                    <i class="fa-regular fa-calendar"></i><span>2027</span>
+                  </div>
+                  <p>
+                    International workshop accepted at SANER 2027, focusing on
+                    AI-enabled Software Engineering.
+                  </p>
+                </div>
+
+                <div class="news-footer">
+                  <span><i class="fa-solid fa-brain"></i> AI-enabled Software Engineering</span>
+                  <a href="#" class="news-link" data-news-link>
+                    Learn More <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card-glow"></div>
+              <div class="news-card-shine"></div>
+              <div class="news-card-inner">
+                <div class="news-top">
+                  <span class="news-type"><i class="fa-solid fa-users"></i> EVENT</span>
+                  <span class="news-year">2027</span>
+                </div>
+
+                <div class="news-content">
+                  <span class="news-label">RESEARCH MILESTONE / 04</span>
+                  <h3>LiveWrite 2027 Accepted</h3>
+                  <div class="news-date">
+                    <i class="fa-regular fa-calendar"></i><span>2027</span>
+                  </div>
+                  <p>
+                    AISEL joins the international LiveWrite collaborative research
+                    initiative focused on turning shared ideas into research action.
+                  </p>
+                </div>
+
+                <div class="news-footer">
+                  <span><i class="fa-solid fa-pen-nib"></i> Collaborative Research</span>
+                  <a href="#" class="news-link" data-news-link>
+                    Learn More <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <button class="news-btn next" id="nextNews" type="button" aria-label="Next news">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="news-controls" aria-label="News carousel controls">
+        <div class="news-dots" id="newsDots"></div>
+        <div class="news-progress" aria-hidden="true"><span id="newsProgress"></span></div>
+        <span class="news-counter" id="newsCounter">01 / 04</span>
+      </div>
+
+      <div class="news-bottom">
+        <span></span>
+        <p>
+          Research. Collaboration. Impact.
+          <strong>AISEL continues moving intelligent Software Engineering forward.</strong>
+        </p>
+        <span></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+<div id="testimonials-mount" style="display:contents">
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+
+  <!--
+       The complete Testimonials section is maintained in:
+
+       sections/testimonials.html
+
+       It contains:
+       - Testimonials Hero
+       - Academic Voices
+       - Compact profile cards
+       - Carousel
+       - Navigation
+       - Animation
+       - Research profile links
+  -->
+
+  <section
+    id="testimonials"
+    class="aisel-testimonials">
+
+    <!-- ======================================================
+         HERO
+    ======================================================= -->
+
+    <div class="testimonials-hero">
+
+      <div
+        class="testimonials-hero-grid"
+        aria-hidden="true">
+      </div>
+
+      <div
+        class="testimonials-hero-orb testimonials-orb-one"
+        aria-hidden="true">
+      </div>
+
+      <div
+        class="testimonials-hero-orb testimonials-orb-two"
+        aria-hidden="true">
+      </div>
+
+      <div
+        class="testimonials-hero-particles"
+        id="testimonialParticles"
+        aria-hidden="true">
+      </div>
+
+      <div class="wrap testimonials-hero-inner">
+
+        <div class="testimonials-hero-kicker">
+
+          <span class="kicker-line"></span>
+
+          AISEL · ACADEMIC NETWORK
+
+          <span class="kicker-line"></span>
+
+        </div>
+
+        <h1 class="testimonials-hero-title">
+
+          Voices from our
+
+          <span>research community.</span>
+
+        </h1>
+
+        <p class="testimonials-hero-description">
+
+          AISEL brings together researchers, academic collaborators,
+          and Software Engineering experts working across Artificial
+          Intelligence, adaptive systems, requirements engineering,
+          security, and intelligent systems.
+
+        </p>
+
+        <div class="testimonials-hero-tags">
+
+          <span>
+            <i class="fa-solid fa-brain"></i>
+            AI &amp; Software Engineering
+          </span>
+
+          <span>
+            <i class="fa-solid fa-code-branch"></i>
+            Research Collaboration
+          </span>
+
+          <span>
+            <i class="fa-solid fa-globe"></i>
+            Global Academic Network
+          </span>
+
+        </div>
+
+        <a
+          href="#academic-voices"
+          class="testimonials-hero-button">
+
+          Explore Academic Voices
+
+          <i class="fa-solid fa-arrow-down"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         CONTENT
+    ======================================================= -->
+
+    <div
+      class="wrap testimonials-main"
+      id="academic-voices">
+
+      <div class="section-head reveal">
+
+        <div class="section-tag">
+
+          07 · ACADEMIC VOICES
+
+        </div>
+
+        <h2 class="section-title">
+
+          Research Perspectives &amp; Collaboration
+
+        </h2>
+
+        <p class="section-desc">
+
+          AISEL's wider research network connects academics
+          working across complementary areas of Artificial
+          Intelligence and Software Engineering. The profiles
+          below highlight researchers whose expertise contributes
+          to the broader academic ecosystem.
+
+        </p>
+
+      </div>
+
+
+      <!-- CAROUSEL -->
+
+      <div class="testi-carousel reveal">
+
+        <button
+          class="icon-btn testi-prev"
+          type="button"
+          aria-label="Previous academic profile">
+
+          <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+        <div
+          class="testi-viewport"
+          id="testiViewport"
+          tabindex="0">
+
+          <div
+            class="testi-track"
+            id="testiTrack">
+
+
+            <!-- PROFILE 01 -->
+
+            <article
+              class="testi-slide is-active">
+
+              <div class="testi-card">
+
+                <div class="testi-card-accent"></div>
+
+                <div class="testi-card-header">
+
+                  <div class="testi-avatar">
+
+                    <span>SR</span>
+
+                  </div>
+
+                  <div class="testi-profile-number">
+
+                    01 / 03
+
+                  </div>
+
+                </div>
+
+                <div class="testi-type">
+
+                  <i class="fa-solid fa-user-tie"></i>
+
+                  Academic Collaborator
+
+                </div>
+
+                <h3 class="testi-name">
+
+                  Dr. Saif-ur-Rehman
+
+                </h3>
+
+                <p class="testi-role">
+
+                  Academic Researcher · St. Martin's University
+
+                </p>
+
+                <div class="testi-divider"></div>
+
+                <p class="testi-quote">
+
+                  Dr. Saif-ur-Rehman represents the academic
+                  research community connected with AISEL. His
+                  profile provides a foundation for academic
+                  engagement, knowledge exchange, and research
+                  collaboration.
+
+                </p>
+
+                <div class="testi-tags">
+
+                  <span>Academic Research</span>
+
+                  <span>Research Collaboration</span>
+
+                  <span>Higher Education</span>
+
+                </div>
+
+                <a
+                  class="testi-profile-link"
+                  href="https://stmu.edu.pk/dr-saif-ur-rehman-2/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  View Official Profile
+
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- PROFILE 02 -->
+
+            <article class="testi-slide">
+
+              <div class="testi-card">
+
+                <div class="testi-card-accent"></div>
+
+                <div class="testi-card-header">
+
+                  <div class="testi-avatar">
+
+                    <span>NA</span>
+
+                  </div>
+
+                  <div class="testi-profile-number">
+
+                    02 / 03
+
+                  </div>
+
+                </div>
+
+                <div class="testi-type">
+
+                  <i class="fa-solid fa-user-tie"></i>
+
+                  Academic Collaborator
+
+                </div>
+
+                <h3 class="testi-name">
+
+                  Dr. Nadeem Abbas
+
+                </h3>
+
+                <p class="testi-role">
+
+                  Senior Lecturer · Linnaeus University, Sweden
+
+                </p>
+
+                <div class="testi-divider"></div>
+
+                <p class="testi-quote">
+
+                  Dr. Nadeem Abbas works in Software Engineering
+                  with research interests spanning self-adaptive
+                  software systems, dynamic software product
+                  lines, requirements engineering, software reuse,
+                  software architecture, and AI-supported
+                  decision-making.
+
+                </p>
+
+                <div class="testi-tags">
+
+                  <span>Self-Adaptive Systems</span>
+
+                  <span>Requirements</span>
+
+                  <span>Software Architecture</span>
+
+                </div>
+
+                <a
+                  class="testi-profile-link"
+                  href="https://www.lnu.se/en/staff/nadeem.abbas"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  View Official Profile
+
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- PROFILE 03 -->
+
+            <article class="testi-slide">
+
+              <div class="testi-card">
+
+                <div class="testi-card-accent"></div>
+
+                <div class="testi-card-header">
+
+                  <div class="testi-avatar">
+
+                    <span>HM</span>
+
+                  </div>
+
+                  <div class="testi-profile-number">
+
+                    03 / 03
+
+                  </div>
+
+                </div>
+
+                <div class="testi-type">
+
+                  <i class="fa-solid fa-user-tie"></i>
+
+                  Academic Collaborator
+
+                </div>
+
+                <h3 class="testi-name">
+
+                  Dr. Haroon Mahmood
+
+                </h3>
+
+                <p class="testi-role">
+
+                  Associate Professor · Al Ain University, UAE
+
+                </p>
+
+                <div class="testi-divider"></div>
+
+                <p class="testi-quote">
+
+                  Dr. Haroon Mahmood's academic profile connects
+                  artificial intelligence and intelligent systems
+                  with areas including information and IoT security,
+                  digital forensics, UAV mobility modelling,
+                  software-defined networking, and large language
+                  models.
+
+                </p>
+
+                <div class="testi-tags">
+
+                  <span>AI &amp; LLMs</span>
+
+                  <span>IoT Security</span>
+
+                  <span>Digital Forensics</span>
+
+                </div>
+
+                <a
+                  class="testi-profile-link"
+                  href="https://aau.ac.ae/en/staff/haroon-mahmood"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  View Official Profile
+
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="icon-btn testi-next"
+          type="button"
+          aria-label="Next academic profile">
+
+          <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+      </div>
+
+
+      <!-- CONTROLS -->
+
+      <div class="testi-controls">
+
+        <div
+          class="testi-dots"
+          id="testiDots">
+        </div>
+
+        <div
+          class="testi-progress"
+          aria-hidden="true">
+
+          <span id="testiProgress"></span>
+
+        </div>
+
+        <span
+          class="testi-counter"
+          id="testiCounter">
+
+          01 / 03
+
+        </span>
+
+      </div>
+
+
+      <div class="testimonials-bottom reveal">
+
+        <span></span>
+
+        <p>
+
+          <strong>
+            Research · Collaboration · Impact
+          </strong>
+
+          <br>
+
+          Connecting ideas, expertise, and people across
+          the global Software Engineering research community.
+
+        </p>
+
+        <span></span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+<!-- ==========================================================
+     CONTACT & COLLABORATION
+========================================================== -->
+
+<div id="contact-mount" style="display:contents">
+
+<section
+  id="contact"
+  class="contact-section">
+
+
+  <!-- ========================================================
+       CONTACT HERO
+  ========================================================= -->
+
+  <div class="contact-hero">
+
+    <div
+      class="contact-hero-grid"
+      aria-hidden="true">
+    </div>
+
+
+    <div
+      class="contact-hero-orb contact-orb-one"
+      aria-hidden="true">
+    </div>
+
+
+    <div
+      class="contact-hero-orb contact-orb-two"
+      aria-hidden="true">
+    </div>
+
+
+    <div
+      class="contact-hero-orb contact-orb-three"
+      aria-hidden="true">
+    </div>
+
+
+    <div
+      class="contact-particles"
+      id="contactParticles"
+      aria-hidden="true">
+    </div>
+
+
+    <div class="wrap contact-hero-inner">
+
+
+      <div class="contact-hero-kicker">
+
+        <span class="contact-kicker-line"></span>
+
+        AISEL · CONTACT &amp; COLLABORATION
+
+        <span class="contact-kicker-line"></span>
+
+      </div>
+
+
+      <h1 class="contact-hero-title">
+
+        Let's connect,
+
+        <span>collaborate &amp; innovate.</span>
+
+      </h1>
+
+
+      <p class="contact-hero-description">
+
+        Interested in research collaboration, graduate opportunities,
+        intelligent software engineering, AI-driven software engineering,
+        or industry partnerships? Connect with AISEL and explore
+        opportunities to work together on meaningful research,
+        intelligent systems, and software engineering innovation.
+
+      </p>
+
+
+      <div class="contact-hero-tags">
+
+
+        <span>
+
+          <i class="fa-solid fa-brain"></i>
+
+          AI for Software Engineering
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-robot"></i>
+
+          Agentic AI &amp; LLM4SE
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-code-branch"></i>
+
+          Research Collaboration
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-users"></i>
+
+          Graduate Opportunities
+
+        </span>
+
+
+      </div>
+
+
+      <div class="contact-hero-actions">
+
+
+        <a
+          href="#contact-workspace"
+          class="contact-hero-btn contact-hero-btn-primary">
+
+          <span>
+
+            Start a Conversation
+
+          </span>
+
+          <i class="fa-solid fa-arrow-down"></i>
+
+        </a>
+
+
+        <a
+          href="#joinForm"
+          class="contact-hero-btn contact-hero-btn-secondary">
+
+          <span>
+
+            Join AISEL
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+      </div>
+
+
+      <div class="contact-hero-stats">
+
+
+        <div class="contact-hero-stat">
+
+          <div class="contact-stat-icon">
+
+            <i class="fa-solid fa-comments"></i>
+
+          </div>
+
+          <div>
+
+            <strong data-contact-counter="01">
+              0
+            </strong>
+
+            <span>
+              Open Communication
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-hero-stat">
+
+          <div class="contact-stat-icon">
+
+            <i class="fa-solid fa-flask"></i>
+
+          </div>
+
+          <div>
+
+            <strong data-contact-counter="02">
+              0
+            </strong>
+
+            <span>
+              Research Directions
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-hero-stat">
+
+          <div class="contact-stat-icon">
+
+            <i class="fa-solid fa-globe"></i>
+
+          </div>
+
+          <div>
+
+            <strong data-contact-counter="03">
+              0
+            </strong>
+
+            <span>
+              Global Collaboration
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ========================================================
+       CONTACT CONTENT
+  ========================================================= -->
+
+  <div
+    class="wrap contact-content"
+    id="contact-workspace">
+
+
+    <div class="section-head reveal contact-section-head">
+
+
+      <div class="section-tag">
+
+        07 · CONTACT &amp; COLLABORATION
+
+      </div>
+
+
+      <h2 class="section-title">
+
+        Connect with AISEL
+
+      </h2>
+
+
+      <p class="section-desc">
+
+        Whether you are interested in research collaboration,
+        graduate opportunities, software engineering research,
+        workshop proposals, or industry partnerships, AISEL
+        welcomes meaningful conversations that can lead to
+        new research ideas, collaborations, and intelligent
+        software engineering solutions.
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- ======================================================
+         TABS
+    ======================================================= -->
+
+    <div
+      class="tabs contact-tabs reveal"
+      role="tablist"
+      aria-label="Contact options">
+
+
+      <button
+        class="tab-btn active"
+        data-tab="contactForm"
+        role="tab"
+        aria-selected="true"
+        aria-controls="contactForm"
+        type="button">
+
+        <i class="fa-regular fa-envelope"></i>
+
+        Get in Touch
+
+      </button>
+
+
+      <button
+        class="tab-btn"
+        data-tab="joinForm"
+        role="tab"
+        aria-selected="false"
+        aria-controls="joinForm"
+        type="button">
+
+        <i class="fa-solid fa-user-plus"></i>
+
+        Join the Lab
+
+      </button>
+
+
+    </div>
+
+
+
+    <!-- ======================================================
+         GET IN TOUCH
+    ======================================================= -->
+
+    <div
+      id="contactForm"
+      class="tab-panel active"
+      data-panel="contactForm"
+      role="tabpanel">
+
+
+      <div class="contact-grid reveal">
+
+
+        <div class="contact-info">
+
+
+          <span class="contact-kicker">
+
+            RESEARCH &amp; COLLABORATION
+
+          </span>
+
+
+          <h3 class="contact-title">
+
+            Let's build intelligent
+            software engineering systems.
+
+          </h3>
+
+
+          <p class="contact-description">
+
+            General questions, research collaborations, media
+            inquiries, workshop proposals, or industry partnerships
+            are welcome. Your message can be directed to the AISEL
+            research team so that we can better understand your
+            interests and identify appropriate opportunities for
+            collaboration.
+
+          </p>
+
+
+          <ul class="contact-list">
+
+
+            <li>
+
+              <span class="k">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                Email
+
+              </span>
+
+
+              <a
+                href="mailto:khubaib.alam@aau.ac.ae">
+
+                khubaib.alam@aau.ac.ae
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <span class="k">
+
+                <i class="fa-brands fa-github"></i>
+
+                GitHub
+
+              </span>
+
+
+              <a
+                href="https://github.com/aisel-lab"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                github.com/aisel-lab
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <span class="k">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Location
+
+              </span>
+
+
+              <span>
+
+                College of Engineering, Al Ain University - UAE
+
+              </span>
+
+            </li>
+
+
+          </ul>
+
+
+          <div class="contact-focus-wrapper">
+
+
+            <div class="contact-focus-title">
+
+              Research Focus
+
+            </div>
+
+
+            <div class="contact-focus">
+
+              <span>
+
+                <i class="fa-solid fa-robot"></i>
+
+                Agentic AI
+
+              </span>
+
+
+              <span>
+
+                <i class="fa-solid fa-brain"></i>
+
+                AI for SE
+
+              </span>
+
+
+              <span>
+
+                <i class="fa-solid fa-language"></i>
+
+                LLM4SE
+
+              </span>
+
+
+              <span>
+
+                <i class="fa-solid fa-database"></i>
+
+                Repository Analytics
+
+              </span>
+
+
+              <span>
+
+                <i class="fa-solid fa-list-check"></i>
+
+                Requirements Engineering
+
+              </span>
+
+
+              <span>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Trustworthy AI
+
+              </span>
+
+
+            </div>
+
+
+          </div>
+
+
+          <div class="contact-info-note">
+
+
+            <div class="contact-info-note-icon">
+
+              <i class="fa-solid fa-lightbulb"></i>
+
+            </div>
+
+
+            <p>
+
+              Have an idea, research problem, dataset,
+              collaboration proposal, or potential project?
+              We would be glad to hear from you.
+
+            </p>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <form
+          id="contactFormEl"
+          class="contact-form"
+          novalidate>
+
+
+          <div class="contact-form-header">
+
+            <div>
+
+              <span class="contact-form-label">
+
+                CONTACT AISEL
+
+              </span>
+
+
+              <h3>
+
+                Send us a message
+
+              </h3>
+
+            </div>
+
+
+            <div class="contact-form-icon">
+
+              <i class="fa-regular fa-paper-plane"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-form-line"></div>
+
+
+          <div class="field">
+
+            <label for="c-name">
+
+              Name
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-regular fa-user"></i>
+
+
+              <input
+                id="c-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your full name"
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="c-email">
+
+              Email
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-regular fa-envelope"></i>
+
+
+              <input
+                id="c-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="c-subject">
+
+              Subject
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-solid fa-tag"></i>
+
+
+              <input
+                id="c-subject"
+                name="subject"
+                type="text"
+                placeholder="Research collaboration, PhD, project..."
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="c-message">
+
+              Message
+
+            </label>
+
+
+            <div class="field-input-wrapper textarea-wrapper">
+
+              <i class="fa-regular fa-message"></i>
+
+
+              <textarea
+                id="c-message"
+                name="message"
+                placeholder="Tell us about your research idea, question, or collaboration opportunity..."
+                required></textarea>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="submit-btn"
+            type="submit">
+
+            <span class="spinner"></span>
+
+            <span class="btn-label">
+
+              Send Message
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right submit-arrow"></i>
+
+          </button>
+
+
+          <div
+            class="form-success"
+            role="status"
+            aria-live="polite">
+
+            <span class="check">
+
+              <i class="fa-solid fa-check"></i>
+
+            </span>
+
+            <span>
+
+              Message sent — we'll get back to you soon.
+
+            </span>
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ======================================================
+         JOIN LAB
+    ======================================================= -->
+
+    <div
+      id="joinForm"
+      class="tab-panel"
+      data-panel="joinForm"
+      role="tabpanel"
+      hidden>
+
+
+      <div class="join-panel reveal">
+
+
+        <div class="join-intro">
+
+
+          <span class="contact-kicker">
+
+            JOIN AISEL
+
+          </span>
+
+
+          <h3 class="contact-title">
+
+            Work with us on
+            intelligent software engineering.
+
+          </h3>
+
+
+          <p class="contact-description">
+
+            AISEL welcomes applications from motivated PhD,
+            MS, undergraduate researchers, and potential industry
+            collaborators interested in AI-driven Software
+            Engineering. Tell us about your background, interests,
+            and the research direction you would like to explore.
+
+          </p>
+
+
+          <div class="join-benefits">
+
+
+            <div class="join-benefit">
+
+              <div class="join-benefit-icon">
+
+                <i class="fa-solid fa-flask"></i>
+
+              </div>
+
+
+              <div>
+
+                <h4>
+
+                  Research Opportunities
+
+                </h4>
+
+
+                <p>
+
+                  Explore research problems in AI-driven
+                  Software Engineering and related areas.
+
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="join-benefit">
+
+              <div class="join-benefit-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+              </div>
+
+
+              <div>
+
+                <h4>
+
+                  Collaborative Environment
+
+                </h4>
+
+
+                <p>
+
+                  Work with researchers on interdisciplinary
+                  software engineering problems.
+
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="join-benefit">
+
+              <div class="join-benefit-icon">
+
+                <i class="fa-solid fa-rocket"></i>
+
+              </div>
+
+
+              <div>
+
+                <h4>
+
+                  Research Impact
+
+                </h4>
+
+
+                <p>
+
+                  Turn research ideas into publications,
+                  prototypes, and practical systems.
+
+                </p>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <form
+          id="joinFormEl"
+          class="join-form"
+          novalidate>
+
+
+          <div class="contact-form-header">
+
+            <div>
+
+              <span class="contact-form-label">
+
+                JOIN THE LAB
+
+              </span>
+
+
+              <h3>
+
+                Tell us about yourself
+
+              </h3>
+
+            </div>
+
+
+            <div class="contact-form-icon">
+
+              <i class="fa-solid fa-user-plus"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-form-line"></div>
+
+
+          <div class="field">
+
+            <label for="j-name">
+
+              Name
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-regular fa-user"></i>
+
+
+              <input
+                id="j-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Your full name"
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="j-email">
+
+              Email
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-regular fa-envelope"></i>
+
+
+              <input
+                id="j-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="j-program">
+
+              Program
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-solid fa-graduation-cap"></i>
+
+
+              <select
+                id="j-program"
+                name="program"
+                required>
+
+                <option value="">
+                  Select one
+                </option>
+
+                <option value="PhD">
+                  PhD
+                </option>
+
+                <option value="MS">
+                  MS
+                </option>
+
+                <option value="Undergraduate Research">
+                  Undergraduate Research
+                </option>
+
+                <option value="Industry Collaboration">
+                  Industry Collaboration
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="j-area">
+
+              Area of Interest
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-solid fa-flask"></i>
+
+
+              <select
+                id="j-area"
+                name="area"
+                required>
+
+                <option value="">
+                  Select one
+                </option>
+
+                <option>
+                  Agentic AI for Software Engineering
+                </option>
+
+                <option>
+                  Automated Software Engineering
+                </option>
+
+                <option>
+                  Repository Analytics
+                </option>
+
+                <option>
+                  Natural Language-Based Software Engineering
+                </option>
+
+                <option>
+                  Requirements Engineering
+                </option>
+
+                <option>
+                  Trustworthy AI for Software Engineering
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="j-cv">
+
+              CV / Portfolio Link
+
+            </label>
+
+
+            <div class="field-input-wrapper">
+
+              <i class="fa-solid fa-link"></i>
+
+
+              <input
+                id="j-cv"
+                name="cv"
+                type="url"
+                placeholder="https://">
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="j-message">
+
+              Motivation
+
+            </label>
+
+
+            <div class="field-input-wrapper textarea-wrapper">
+
+              <i class="fa-regular fa-message"></i>
+
+
+              <textarea
+                id="j-message"
+                name="message"
+                placeholder="Tell us about your research interests, experience, and motivation..."
+                required></textarea>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="submit-btn"
+            type="submit">
+
+            <span class="spinner"></span>
+
+            <span class="btn-label">
+
+              Submit Application
+
+            </span>
+
+            <i class="fa-solid fa-arrow-right submit-arrow"></i>
+
+          </button>
+
+
+          <div
+            class="form-success"
+            role="status"
+            aria-live="polite">
+
+            <span class="check">
+
+              <i class="fa-solid fa-check"></i>
+
+            </span>
+
+            <span>
+
+              Application received — we'll be in touch.
+
+            </span>
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ======================================================
+         BOTTOM
+    ======================================================= -->
+
+    <div class="contact-bottom reveal">
+
+      <span></span>
+
+      <p>
+
+        <strong>
+          Research · Collaboration · Impact
+        </strong>
+
+        <br>
+
+        Connect with AISEL and help transform ideas into
+        intelligent software engineering research.
+
+      </p>
+
+      <span></span>
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+</div>
+</main>
+
+<!-- ==========================================================
+     AISEL — NAVY BLUE FOOTER
+========================================================== -->
+
+<footer
+  id="site-footer"
+  class="site-footer">
+
+
+  <!-- ========================================================
+       ANIMATED BACKGROUND
+  ========================================================= -->
+
+  <div
+    class="footer-grid-bg"
+    aria-hidden="true">
+  </div>
+
+
+  <div
+    class="footer-glow footer-glow-one"
+    aria-hidden="true">
+  </div>
+
+
+  <div
+    class="footer-glow footer-glow-two"
+    aria-hidden="true">
+  </div>
+
+
+  <div
+    class="footer-glow footer-glow-three"
+    aria-hidden="true">
+  </div>
+
+
+  <div
+    class="footer-particles"
+    id="footerParticles"
+    aria-hidden="true">
+  </div>
+
+
+
+  <!-- ========================================================
+       FOOTER MAIN
+  ========================================================= -->
+
+  <div class="wrap footer-main">
+
+
+    <!-- ======================================================
+         BRAND COLUMN
+    ======================================================= -->
+
+    <div
+      class="footer-brand footer-reveal">
+
+
+      <a
+        href="#home"
+        class="footer-brand-link"
+        aria-label="AISEL Home">
+
+
+        <span
+          class="footer-brand-logo"
+          aria-hidden="true">
+
+
+          <span
+            class="footer-logo-node node-one">
+          </span>
+
+
+          <span
+            class="footer-logo-node node-two">
+          </span>
+
+
+          <span
+            class="footer-logo-node node-three">
+          </span>
+
+
+          <span
+            class="footer-logo-line line-one">
+          </span>
+
+
+          <span
+            class="footer-logo-line line-two">
+          </span>
+
+
+          <span
+            class="footer-logo-core">
+
+            AI
+
+          </span>
+
+
+        </span>
+
+
+        <span class="footer-brand-text">
+
+          <strong>
+
+            AISEL
+
+          </strong>
+
+
+          <small>
+
+            AI-Driven Software Engineering Lab
+
+          </small>
+
+        </span>
+
+
+      </a>
+
+
+
+      <p class="footer-description">
+
+        AISEL — AI-Driven Software Engineering Lab — focuses
+        on intelligent automation of software engineering,
+        automated software engineering, repository analytics,
+        natural language-based software engineering, agentic
+        AI, and trustworthy intelligent systems. We bring
+        together research, engineering, and collaboration to
+        develop practical solutions for the future of software
+        engineering.
+
+      </p>
+
+
+
+      <!-- Research tags -->
+
+      <div
+        class="footer-focus-tags">
+
+
+        <span>
+
+          <i class="fa-solid fa-robot"></i>
+
+          Agentic AI
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-brain"></i>
+
+          AI4SE
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-code-branch"></i>
+
+          LLM4SE
+
+        </span>
+
+
+        <span>
+
+          <i class="fa-solid fa-flask"></i>
+
+          Research
+
+        </span>
+
+
+      </div>
+
+
+
+      <!-- Social -->
+
+      <div class="footer-socials">
+
+
+        <a
+          class="footer-social"
+          href="https://github.com/aisel-lab"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="AISEL on GitHub">
+
+
+          <i class="fa-brands fa-github"></i>
+
+
+          <span>
+
+            GitHub
+
+          </span>
+
+
+        </a>
+
+
+        <a
+          class="footer-social"
+          href="https://www.linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="AISEL on LinkedIn">
+
+
+          <i class="fa-brands fa-linkedin-in"></i>
+
+
+          <span>
+
+            LinkedIn
+
+          </span>
+
+
+        </a>
+
+
+        <a
+          class="footer-social"
+          href="https://x.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="AISEL on X">
+
+
+          <i class="fa-brands fa-x-twitter"></i>
+
+
+          <span>
+
+            X
+
+          </span>
+
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ======================================================
+         QUICK LINKS
+    ======================================================= -->
+
+    <div
+      class="footer-links footer-reveal">
+
+
+      <div class="footer-column-heading">
+
+
+        <span class="footer-heading-line"></span>
+
+
+        <h3>
+
+          Quick Links
+
+        </h3>
+
+
+      </div>
+
+
+      <p class="footer-column-description">
+
+        Explore the main areas of AISEL, including our
+        research directions, team, publications, projects,
+        recent activities, and collaboration opportunities.
+
+      </p>
+
+
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation">
+
+
+        <a href="#home">
+
+          <span>
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#research">
+
+          <span>
+
+            <i class="fa-solid fa-flask"></i>
+
+            Research
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#people">
+
+          <span>
+
+            <i class="fa-solid fa-users"></i>
+
+            People
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#publications">
+
+          <span>
+
+            <i class="fa-solid fa-book-open"></i>
+
+            Publications
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#projects">
+
+          <span>
+
+            <i class="fa-solid fa-code-branch"></i>
+
+            Projects
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#news">
+
+          <span>
+
+            <i class="fa-regular fa-newspaper"></i>
+
+            News
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a href="#contact">
+
+          <span>
+
+            <i class="fa-regular fa-envelope"></i>
+
+            Contact
+
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+      </nav>
+
+
+    </div>
+
+
+
+    <!-- ======================================================
+         NEWSLETTER
+    ======================================================= -->
+
+    <div
+      class="footer-newsletter footer-reveal">
+
+
+      <div class="footer-column-heading">
+
+
+        <span class="footer-heading-line"></span>
+
+
+        <h3>
+
+          Stay Connected
+
+        </h3>
+
+
+      </div>
+
+
+      <p class="footer-column-description">
+
+        Receive occasional updates about AISEL research,
+        publications, talks, workshops, research openings,
+        projects, and other important software engineering
+        activities.
+
+      </p>
+
+
+
+      <!-- Newsletter card -->
+
+      <div class="footer-newsletter-card">
+
+
+        <div
+          class="newsletter-icon">
+
+
+          <i class="fa-regular fa-envelope"></i>
+
+
+        </div>
+
+
+        <div class="newsletter-card-content">
+
+
+          <h4>
+
+            AISEL Research Updates
+
+          </h4>
+
+
+          <p>
+
+            Papers · Talks · Projects · Openings
+
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <form
+        id="newsletterForm"
+        class="footer-newsletter-form"
+        novalidate>
+
+
+        <label
+          for="newsletterEmail"
+          class="sr-only">
+
+          Email address
+
+        </label>
+
+
+        <div
+          class="newsletter-input-wrapper">
+
+
+          <i class="fa-regular fa-envelope"></i>
+
+
+          <input
+            type="email"
+            id="newsletterEmail"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required>
+
+
+        </div>
+
+
+        <button
+          class="footer-subscribe-btn"
+          type="submit">
+
+
+          <span class="newsletter-spinner"></span>
+
+
+          <span class="newsletter-btn-label">
+
+            Subscribe
+
+          </span>
+
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+
+        </button>
+
+
+      </form>
+
+
+      <div
+        class="newsletter-success"
+        role="status"
+        aria-live="polite">
+
+
+        <i class="fa-solid fa-circle-check"></i>
+
+
+        <span>
+
+          Subscribed — thanks for following along.
+
+        </span>
+
+
+      </div>
+
+
+      <p class="newsletter-note">
+
+        No spam. Only meaningful research updates.
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ========================================================
+       FOOTER DIVIDER
+  ========================================================= -->
+
+  <div class="wrap">
+
+
+    <div class="footer-divider">
+
+
+      <span></span>
+
+
+      <div class="footer-divider-label">
+
+        <i class="fa-solid fa-microchip"></i>
+
+        INTELLIGENT SOFTWARE ENGINEERING
+
+      </div>
+
+
+      <span></span>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ========================================================
+       FOOTER BOTTOM
+  ========================================================= -->
+
+  <div class="wrap footer-bottom">
+
+
+    <div class="footer-copyright">
+
+
+      <span>
+
+        © <span id="year"></span>
+
+      </span>
+
+
+      <strong>
+
+        AISEL — AI-Driven Software Engineering Lab
+
+      </strong>
+
+
+    </div>
+
+
+
+    <div class="footer-status">
+
+
+      <span class="status-indicator">
+
+        <span class="status-dot"></span>
+
+        SYSTEM STATUS
+
+      </span>
+
+
+      <span class="status-badge">
+
+        <span class="status-pulse"></span>
+
+        Build: Passing
+
+      </span>
+
+
+    </div>
+
+
+
+    <a
+      href="#home"
+      class="footer-top-btn"
+      aria-label="Back to top">
+
+
+      <span>
+
+        Back to top
+
+      </span>
+
+
+      <i class="fa-solid fa-arrow-up"></i>
+
+
+    </a>
+
+
+  </div>
+
+
+</footer>
+
+<button id="backToTop" class="icon-btn" aria-label="Back to top">↑</button>
+
+<!-- Shared data (single source of truth for numbers reused across sections) -->
+<script src="js/data/site-stats.js"></script>
+<!-- Shared base JS -->
+<script src="js/base.js"></script>
+<!-- Per-section JS -->
+<script src="js/home.js"></script>
+<script src="js/research.js"></script>
+<script src="js/people.js"></script>
+<script src="js/publications.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/news.js"></script>
+<script src="js/partners.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/testimonials.js"></script>
+
+<!-- Loader: fetches every section's HTML file and drops it into
+     its mount point, then runs each section's init function.
+     NOTE: fetch() cannot load local files over the file:// protocol
+     in most browsers. Serve this folder with a local server (e.g.
+     VS Code "Live Server", `python3 -m http.server`) or upload it
+     to any static host (GitHub Pages, Netlify, etc.) to view it. -->
+<script>
+  (function boot(){
+
+    const inits = [
+      initBase,
+      initHome,
+      initPeople,
+      initPublications,
+      initProjects,
+      initNews,
+      initTestimonials,
+      initContact,
+      initFooter
+    ];
+
+    inits.forEach(function(fn){
+
+      try {
+
+        fn();
+
+      } catch (err) {
+
+        console.error(
+          `${fn.name} failed to initialize:`,
+          err
+        );
+
+      }
+
+    });
+
+  })();
+</script>
+
+
+<script id="aisel-testimonials-inline">
+(function () {
+  "use strict";
+
+  function initPolishedTestimonials() {
+    const section = document.getElementById("testimonials");
+    const track = document.getElementById("testiTrack");
+    const dotsWrap = document.getElementById("testiDots");
+    const prev = document.querySelector(".testi-prev");
+    const next = document.querySelector(".testi-next");
+
+    if (!section || !track || !dotsWrap || !prev || !next) return;
+
+    const slides = Array.from(track.querySelectorAll(".testi-slide"));
+    if (!slides.length) return;
+
+    let index = 0;
+    let timer = null;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    dotsWrap.innerHTML = slides.map((_, i) => `
+      <button
+        class="testi-dot ${i === 0 ? "active" : ""}"
+        type="button"
+        aria-label="Show academic profile ${i + 1}"
+        data-index="${i}">
+      </button>
+    `).join("");
+
+    const dots = Array.from(dotsWrap.querySelectorAll(".testi-dot"));
+
+    function goTo(nextIndex) {
+      index = (nextIndex + slides.length) % slides.length;
+      track.style.transform = `translate3d(-${index * 100}%,0,0)`;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === index);
+        slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+        dot.setAttribute("aria-current", i === index ? "true" : "false");
+      });
+    }
+
+    function startAutoplay() {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(() => goTo(index + 1), 6500);
+    }
+
+    function stopAutoplay() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    prev.addEventListener("click", () => {
+      goTo(index - 1);
+      startAutoplay();
+    });
+
+    next.addEventListener("click", () => {
+      goTo(index + 1);
+      startAutoplay();
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        goTo(Number(dot.dataset.index));
+        startAutoplay();
+      });
+    });
+
+    const viewport = document.getElementById("testiViewport");
+
+    if (viewport) {
+      viewport.addEventListener("mouseenter", stopAutoplay);
+      viewport.addEventListener("mouseleave", startAutoplay);
+
+      viewport.addEventListener("keydown", event => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goTo(index - 1);
+          startAutoplay();
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goTo(index + 1);
+          startAutoplay();
+        }
+      });
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+
+    goTo(0);
+    startAutoplay();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPolishedTestimonials);
+  } else {
+    initPolishedTestimonials();
+  }
+})();
+</script>
+
+</body>
+</html>

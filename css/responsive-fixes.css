@@ -1,0 +1,86 @@
+/* ==========================================================
+   AISEL — RESPONSIVE SAFETY NET
+   Additive, non-destructive mobile-responsiveness patches.
+
+   This file is loaded LAST, after every other stylesheet, and only
+   ever narrows things down for small screens. It does not redefine
+   colors, spacing tokens, or component structure, so the desktop/
+   tablet template is completely unchanged — it only tightens layout
+   on phones so nothing overflows, overlaps, or gets clipped.
+   ========================================================== */
+
+/* ---------- universal safety ---------- */
+
+html, body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+img, svg, video, canvas, iframe{
+  max-width:100%;
+  height:auto;
+}
+
+table{
+  display:block;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+input, textarea, select, button{
+  max-width:100%;
+}
+
+/* ---------- large phones / small tablets ---------- */
+
+@media (max-width:600px){
+
+  .wrap{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  /* Justified body copy needs slightly tighter word/letter spacing on
+     very narrow columns or the gaps between justified words can look
+     too wide; this keeps the justify alignment requested while staying
+     readable on a phone-width column. */
+  p{
+    word-spacing:normal;
+    text-align:justify;
+  }
+
+  /* Note: the site's own per-section stylesheets already collapse card
+     grids to a single column at their own breakpoints (people-grid
+     ~900px, project-grid ~760px, partner-grid auto-fills responsively,
+     etc.), so nothing further is needed here — this file just adds the
+     universal safety net above (no horizontal overflow, fluid media,
+     scrollable tables). */
+}
+
+/* ---------- small phones ---------- */
+
+@media (max-width:400px){
+
+  .wrap{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .people-hero-meta,
+  .directory-tools,
+  .people-filters{
+    flex-wrap:wrap;
+  }
+}
+
+/* ---------- reduced motion respected here too ---------- */
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}

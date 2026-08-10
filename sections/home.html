@@ -1,0 +1,599 @@
+<!-- ===================== HOME ===================== -->
+<section class="hero" id="home">
+  <canvas id="particle-network"></canvas>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <svg class="hero-grid" id="heroGraph" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g id="edges" fill="none" stroke="#12182B" stroke-opacity="0.04" stroke-width="1.4"></g>
+    <g id="nodes"></g>
+  </svg>
+
+
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">AISEL
+         <span></span>
+         AI-Driven Software Engineering Lab
+      </div>
+      <h1 class="title"> Advancing Intelligent <span class="accent"> Software Engineering </span> Through AI. </h1>
+      <p class="lede">
+        <span class="lede-text">
+    AISEL explores the convergence of
+    <strong>Artificial Intelligence</strong> and
+    <strong>Software Engineering</strong>
+    to transform how software is understood, developed, and evolved.
+    Through
+    <strong>Automated Software Engineering (ASE)</strong>,
+    <strong>data-driven software repository intelligence</strong>, and
+    <strong>Natural Language-based Software Engineering (NLbSE)</strong>,
+    we develop AI systems that learn from software artifacts,
+    understand engineering context, and turn software data into actionable
+    knowledge. Our research aims to advance
+    <strong>trustworthy and human-centered AI</strong>
+    toward intelligent systems capable of assisting, reasoning, and
+    autonomously performing complex software engineering tasks.
+        </span>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#research">Explore our research</a>
+        <a class="btn btn-ghost" href="#contact">Meet Our Team</a>
+      </div>
+  <!-- ===================== LAB STATISTICS ===================== -->
+<div class="hero-stats">
+
+  <!-- Researchers -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-users"></i>
+    </div>
+
+    <h2 id="statResearchers" data-target="10">0</h2>
+
+    <span>Researchers</span>
+  </div>
+
+
+  <!-- Publications -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-book-open"></i>
+    </div>
+
+    <h2 id="statPublications" data-target="42">0</h2>
+
+    <span>Publications</span>
+  </div>
+
+
+  <!-- Projects -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-diagram-project"></i>
+    </div>
+
+    <h2 id="statProjects" data-target="9">0</h2>
+
+    <span>Research Projects</span>
+  </div>
+
+
+  <!-- Collaborations -->
+  <div class="hero-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-globe"></i>
+    </div>
+
+    <h2 id="statCountries" data-target="5">0</h2>
+
+    <span>Global Collaborations</span>
+  </div>
+
+</div>
+    </div>
+
+    <div class="terminal">
+      <div class="term-bar">
+        <span></span><span></span><span></span>
+        <span class="term-title">aisel@lab — zsh</span>
+      </div>
+      <div class="term-body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<!-- ==========================================================
+     AISEL — FEATURED RESEARCH AREAS
+========================================================== -->
+<!-- ==========================================================
+     AISEL — FEATURED RESEARCH AREAS
+     Strategic Research Portfolio
+========================================================== -->
+
+<section class="featured-research" id="featured-research">
+
+  <!-- Decorative background elements -->
+  <div class="featured-bg-grid" aria-hidden="true"></div>
+
+  <div class="featured-bg-orb featured-bg-orb-1" aria-hidden="true"></div>
+  <div class="featured-bg-orb featured-bg-orb-2" aria-hidden="true"></div>
+  <div class="featured-bg-glow featured-bg-glow-1" aria-hidden="true"></div>
+  <div class="featured-bg-glow featured-bg-glow-2" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <!-- ======================================================
+         SECTION HEADER
+    ======================================================= -->
+
+    <div class="featured-head">
+
+      <div class="featured-kicker">
+        <span class="kicker-line"></span>
+
+        <span class="kicker-icon">
+          <i class="fa-solid fa-flask"></i>
+        </span>
+
+        AISEL RESEARCH PORTFOLIO
+
+        <span class="kicker-line"></span>
+      </div>
+
+
+      <h2 class="featured-title">
+        Featured <span>Research Areas</span>
+      </h2>
+
+
+      <div class="featured-title-line"></div>
+
+
+      <p class="featured-description">
+        AISEL brings together Artificial Intelligence, Natural Language
+        Processing, software engineering, and data-driven analytics to
+        develop intelligent methods for understanding, automating, and
+        improving modern software systems. Our research portfolio focuses
+        on building practical and trustworthy AI technologies that support
+        software engineers across the entire software lifecycle — from
+        requirements and development to quality assurance, maintenance,
+        repository intelligence, and autonomous engineering.
+      </p>
+
+    </div>
+
+
+    <!-- ======================================================
+         RESEARCH CAROUSEL
+    ======================================================= -->
+
+    <div class="featured-carousel">
+
+      <!-- Previous -->
+      <button
+        class="featured-arrow featured-arrow-prev"
+        id="featuredPrev"
+        type="button"
+        aria-label="Previous research area">
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+      </button>
+
+
+      <!-- Viewport -->
+      <div
+        class="featured-viewport"
+        id="featuredViewport"
+        tabindex="0"
+        aria-label="Featured research areas carousel">
+
+        <div
+          class="featured-track"
+          id="featuredTrack">
+
+
+          <!-- ==================================================
+               CARD 01
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+                alt="Artificial intelligence and autonomous software engineering">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                01
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 01
+              </div>
+
+              <h3>
+                Intelligent &amp; Autonomous Software Engineering
+              </h3>
+
+              <p>
+                Research on applying Artificial Intelligence to automate
+                and augment software engineering activities across the
+                software development lifecycle. This includes intelligent
+                requirements engineering, code generation and analysis,
+                software testing, defect prediction, maintenance,
+                refactoring, and automated decision-making. The goal is
+                to develop <strong>AI-powered software engineering systems
+                that can reason, learn, and autonomously support complex
+                development tasks.</strong>
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-gears"></i>
+                  AI4SE
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-robot"></i>
+                  Autonomous SE
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 02
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=85"
+                alt="Natural language processing and software engineering">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                02
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-language"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 02
+              </div>
+
+              <h3>
+                Natural Language-Based Software Engineering
+              </h3>
+
+              <p>
+                Research at the intersection of <strong>Natural Language
+                Processing and Software Engineering</strong>, focusing on
+                extracting, understanding, transforming, and generating
+                software-related knowledge from natural language. This
+                includes requirements analysis, app-review mining,
+                semantic similarity, topic modeling, sentiment and
+                sarcasm detection, software documentation, and
+                NLP-driven requirements engineering. The broader objective
+                is to <strong>bridge the gap between human language and
+                software artifacts.</strong>
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-comments"></i>
+                  NLP4SE
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-brain"></i>
+                  LLMs
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 03
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=85"
+                alt="Software repository intelligence and data analytics">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                03
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-database"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 03
+              </div>
+
+              <h3>
+                Data-Driven Software Repository Intelligence
+              </h3>
+
+              <p>
+                Research on transforming large-scale software repositories
+                into actionable engineering knowledge through
+                <strong>data mining, machine learning, deep learning, and
+                repository analytics.</strong> This area investigates
+                source code, commits, issues, pull requests, app reviews,
+                APIs, software architectures, and other software artifacts
+                to discover patterns, predict software outcomes, and
+                support engineering decisions. The focus is on building
+                <strong>evidence-driven intelligence from continuously
+                generated software ecosystem data.</strong>
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-code-branch"></i>
+                  MSR
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-chart-line"></i>
+                  Analytics
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 04
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=85"
+                alt="Software quality security reliability and trustworthy AI">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                04
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 04
+              </div>
+
+              <h3>
+                AI-Driven Software Quality, Reliability &amp; Trustworthiness
+              </h3>
+
+              <p>
+                Research on using AI to understand, predict, and improve
+                <strong>software quality, reliability, security,
+                maintainability, and trustworthiness.</strong> This
+                includes quality concern extraction from user feedback,
+                defect and risk prediction, software quality assessment,
+                trustworthy AI for software engineering, and intelligent
+                identification of quality-related issues. The objective is
+                to develop <strong>AI-based mechanisms that make software
+                systems more reliable, secure, maintainable, and
+                trustworthy throughout their lifecycle.</strong>
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-shield"></i>
+                  Trustworthy AI
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-check-double"></i>
+                  Quality
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==================================================
+               CARD 05
+          =================================================== -->
+
+          <article class="featured-card">
+
+            <div class="featured-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85"
+                alt="Generative and agentic artificial intelligence for software engineering">
+
+              <div class="featured-image-overlay"></div>
+
+              <div class="featured-card-number">
+                05
+              </div>
+
+              <div class="featured-image-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+
+            </div>
+
+
+            <div class="featured-card-body">
+
+              <div class="featured-card-label">
+                RESEARCH AREA / 05
+              </div>
+
+              <h3>
+                Generative &amp; Agentic AI for Software Engineering
+              </h3>
+
+              <p>
+                Research on leveraging <strong>Large Language Models,
+                Generative AI, Retrieval-Augmented Generation, and AI
+                agents</strong> to create next-generation software
+                engineering systems. This includes agentic requirements
+                engineering, automated software artifact generation, code
+                and test generation, architectural reasoning, software
+                knowledge management, and multi-agent collaboration. The
+                central aim is to move beyond conventional AI-assisted
+                tools toward <strong>context-aware, reasoning-driven, and
+                autonomous software engineering agents.</strong>
+              </p>
+
+
+              <div class="featured-card-meta">
+
+                <span>
+                  <i class="fa-solid fa-brain"></i>
+                  LLM4SE
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-network-wired"></i>
+                  AI Agents
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+      </div>
+
+
+      <!-- Next -->
+      <button
+        class="featured-arrow featured-arrow-next"
+        id="featuredNext"
+        type="button"
+        aria-label="Next research area">
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+      </button>
+
+    </div>
+
+
+    <!-- ======================================================
+         CAROUSEL CONTROLS
+         JS automatically manages the number of dots.
+    ======================================================= -->
+
+    <div class="featured-controls">
+
+      <div
+        class="featured-dots"
+        id="featuredDots"
+        role="tablist"
+        aria-label="Research area slides">
+      </div>
+
+    </div>
+
+
+    <!-- ======================================================
+         VIEW ALL
+    ======================================================= -->
+
+    <div class="featured-action">
+
+      <a
+        href="#research"
+        class="featured-view-button">
+
+        <span class="featured-button-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </span>
+
+        <span>
+          Explore All Research Areas
+        </span>
+
+        <i class="fa-solid fa-arrow-right featured-button-arrow"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

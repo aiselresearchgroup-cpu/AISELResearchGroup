@@ -1,0 +1,87 @@
+<section id="projects" aria-labelledby="projects-title">
+  <header class="projects-hero">
+    <div class="projects-hero-grid" aria-hidden="true"></div>
+    <div class="projects-hero-glow projects-hero-glow-1" aria-hidden="true"></div>
+    <div class="projects-hero-glow projects-hero-glow-2" aria-hidden="true"></div>
+    <div class="projects-hero-shape projects-hero-shape-1" aria-hidden="true"></div>
+    <div class="projects-hero-shape projects-hero-shape-2" aria-hidden="true"></div>
+    <div class="projects-hero-shape projects-hero-shape-3" aria-hidden="true"></div>
+    <div class="wrap projects-hero-content">
+      <div class="projects-hero-icon projects-reveal"><i class="fa-solid fa-rocket"></i></div>
+      <div class="projects-hero-kicker projects-reveal"><span></span>05 · INTELLIGENT RESEARCH PROJECTS<span></span></div>
+      <h1 id="projects-title" class="projects-hero-title projects-reveal">Our <span>Projects</span></h1>
+      <p class="projects-hero-description projects-reveal">
+        Explore AISEL projects that combine <strong>Transformers</strong>, <strong>Large Language Models</strong>,
+        <strong>Agentic AI</strong>, optimization, and data-driven software engineering to solve challenging problems.
+      </p>
+      <div class="projects-hero-tags projects-reveal">
+        <span><i class="fa-solid fa-microchip"></i> Transformers</span>
+        <span><i class="fa-solid fa-brain"></i> LLMs</span>
+        <span><i class="fa-solid fa-wand-magic-sparkles"></i> Agentic AI</span>
+        <span><i class="fa-solid fa-gauge-high"></i> Inference Optimization</span>
+      </div>
+      <a class="projects-scroll-btn projects-reveal" href="#project-library">Explore Research Projects <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+    <div class="projects-scroll-indicator" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main id="project-library" class="project-library">
+    <div class="wrap">
+      <div class="project-intro projects-reveal">
+        <div>
+          <div class="project-section-kicker"><span></span>RESEARCH PORTFOLIO</div>
+          <h2>Intelligent Systems,<br><span>Built for Software Engineering.</span></h2>
+        </div>
+        <p>Our projects address practical software-engineering challenges through intelligent language models, deep learning, agentic reasoning, and efficient AI inference.</p>
+      </div>
+
+      <div class="project-controls projects-reveal">
+        <div class="project-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="projectSearch" type="search" placeholder="Search projects..." aria-label="Search projects" autocomplete="off">
+          <button id="projectSearchClear" type="button" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="project-filters" role="tablist" aria-label="Project categories">
+          <button class="project-filter active" type="button" data-filter="all" aria-selected="true">All Projects <span data-project-count="all">0</span></button>
+          <button class="project-filter" type="button" data-filter="software-quality" aria-selected="false">Software Quality <span data-project-count="software-quality">0</span></button>
+          <button class="project-filter" type="button" data-filter="app-analytics" aria-selected="false">App Review Analytics <span data-project-count="app-analytics">0</span></button>
+          <button class="project-filter" type="button" data-filter="agentic-se" aria-selected="false">Agentic SE <span data-project-count="agentic-se">0</span></button>
+        </div>
+      </div>
+
+      <div class="project-result-bar projects-reveal">
+        <span>Showing <strong id="projectVisibleCount">0</strong> of <strong id="projectTotalCount">0</strong> projects</span>
+        <span class="project-live"><i></i> Research portfolio</span>
+      </div>
+
+      <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+      <div id="projectEmpty" class="project-empty" hidden>
+        <div class="project-empty-icon"><i class="fa-solid fa-folder-open"></i></div>
+        <h3>No matching projects</h3><p>Try another keyword or clear the current filter.</p>
+        <button id="projectEmptyReset" type="button">Reset Filters</button>
+      </div>
+
+      <div class="project-footer-card projects-reveal">
+        <div class="project-footer-icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <div><strong>Research-driven by design.</strong><p>Every project connects an applied software-engineering problem with an experimental AI research direction.</p></div>
+        <a href="#contact">Discuss a Collaboration <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="projectModal" class="project-modal" aria-labelledby="projectModalTitle">
+    <div class="project-modal-inner">
+      <button id="projectModalClose" class="project-modal-close" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="project-modal-top">
+        <div id="projectModalMark" class="project-modal-mark"><i class="fa-solid fa-brain"></i></div>
+        <div><span id="projectModalCategory" class="project-modal-category">Research Project</span><span id="projectModalStatus" class="project-modal-status"><i></i> Active Research</span></div>
+      </div>
+      <h2 id="projectModalTitle">Project Title</h2>
+      <p id="projectModalDescription" class="project-modal-description"></p>
+      <div class="project-modal-divider"></div>
+      <div class="project-modal-section"><span>RESEARCH STACK</span><div id="projectModalTags" class="project-modal-tags"></div></div>
+      <div class="project-modal-section"><span>KEY CONTRIBUTIONS</span><ul id="projectModalFeatures" class="project-modal-features"></ul></div>
+      <div class="project-modal-bottom"><span id="projectModalFocus" class="project-modal-focus"></span><button id="projectModalDone" type="button">Close Details</button></div>
+    </div>
+  </dialog>
+</section>
