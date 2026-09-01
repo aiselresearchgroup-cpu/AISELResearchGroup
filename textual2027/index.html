@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TEXTUAL: International Workshop on Text Analytics for Software Engineering</title>
+<title>TEXTUAL: International Workshop on Text Analytics and Knowledge Extraction From Natural Language Software Artifacts</title>
 <meta name="description" content="TEXTUAL: International Workshop on Text Analytics for Software Engineering, SANER 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,6 +184,43 @@ section:nth-of-type(even) .person{background:#fff}
 .person .role{font-size:13px;font-weight:700;color:var(--accent);margin:14px 0 0;letter-spacing:.04em;text-transform:uppercase}
 .pc{margin-top:38px;color:var(--muted)}
 
+/* ---------- committee subheadings ---------- */
+.committee-block{margin-top:12px}
+.committee-block+.committee-block{margin-top:58px;padding-top:6px;border-top:1px solid var(--line)}
+.subhead{
+  display:flex;align-items:center;gap:13px;font-size:24px;font-weight:800;
+  margin:0 0 14px;letter-spacing:-.01em;color:var(--navy);
+}
+.subhead::before{
+  content:"";flex:0 0 11px;width:11px;height:11px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 5px rgba(192,122,30,.16);transition:box-shadow .3s var(--ease);
+}
+.committee-block:hover .subhead::before{box-shadow:0 0 0 7px rgba(192,122,30,.22)}
+.subhead span{
+  position:relative;display:inline-block;
+  background:linear-gradient(100deg,var(--navy) 32%,var(--teal-bright) 50%,var(--navy) 68%);
+  background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 6.5s 1s linear infinite;
+}
+.underline-sm{width:0;height:3px;border-radius:2px;margin:0 0 28px;
+  background:linear-gradient(90deg,var(--teal),var(--accent));
+  transition:width .75s var(--ease) .12s;}
+.underline-sm.in{width:54px}
+.people.single{max-width:262px}
+.coming-soon-card{
+  display:inline-flex;align-items:center;gap:10px;margin-top:4px;
+  padding:16px 24px;border:1.5px dashed var(--line);border-radius:6px;
+  color:var(--muted);font-style:italic;background:var(--bg);
+  transition:border-color .25s var(--ease),transform .25s var(--ease);
+}
+section:nth-of-type(even) .coming-soon-card{background:#fff}
+.coming-soon-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.coming-soon-card::before{
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--teal-bright);flex:0 0 8px;
+  animation:pulseDot 1.8s ease-in-out infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:.4;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+
 /* ---------- contact + footer ---------- */
 .contact{background:var(--navy);color:#dfeaed;text-align:center;border-bottom:none}
 .contact h2{color:#fff}
@@ -222,7 +259,7 @@ footer{background:var(--navy-2);color:#8fa5b0;text-align:center;padding:28px 24p
     <a href="#submissions">Submissions</a>
     <a href="#dates">Dates</a>
     <a href="#format">Format</a>
-    <a href="#organization">Organization</a>
+    <a href="#committee">Committee</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -231,7 +268,7 @@ footer{background:var(--navy-2);color:#8fa5b0;text-align:center;padding:28px 24p
   <div class="wrap">
     <p class="kicker">Co-located with SANER 2027 &middot; 34th IEEE International Conference on Software Analysis, Evolution and Reengineering</p>
     <h1 id="title" aria-label="TEXTUAL">TEXTUAL</h1>
-    <p class="sub">International Workshop on Text Analytics for Software Engineering</p>
+    <p class="sub">International Workshop on Text Analytics and Knowledge Extraction From Natural Language Software Artifacts (TEXTUAL 2027) </p>
     <div class="rule"></div>
     <p class="loc">Location <b>Richmond, Virginia, USA</b></p>
     <div class="btns">
@@ -315,46 +352,61 @@ footer{background:var(--navy-2);color:#8fa5b0;text-align:center;padding:28px 24p
   </div>
 </section>
 
-<section id="organization">
+<section id="committee">
   <div class="wrap">
-    <h2 class="reveal">Organizing Committee</h2>
+    <h2 class="reveal">Committee</h2>
     <div class="underline reveal"></div>
-    <div class="people">
 
-      <div class="person reveal">
-        <img class="avatar" src="assets/organizers/khubaib-amjad-alam.jpg" alt="Khubaib Amjad Alam" loading="lazy" width="600" height="600">
-        <p class="name"><a href="https://aau.ac.ae/en/staff/khubaib-Alam" target="_blank" rel="noopener">Khubaib Amjad Alam</a></p>
-        <p class="aff">Al Ain University, United Arab Emirates</p>
-        <p class="role">Organizing Chair</p>
+    <div class="committee-block">
+      <h3 class="subhead reveal"><span>Organizing Committee</span></h3>
+      <div class="underline-sm reveal"></div>
+      <div class="people">
+
+        <div class="person reveal">
+          <img class="avatar" src="assets/organizers/khubaib-amjad-alam.jpg" alt="Khubaib Amjad Alam" loading="lazy" width="600" height="600">
+          <p class="name"><a href="https://aau.ac.ae/en/staff/khubaib-Alam" target="_blank" rel="noopener">Khubaib Amjad Alam</a></p>
+          <p class="aff">Al Ain University, United Arab Emirates</p>
+          <p class="role">Organizing Chair</p>
+        </div>
+
+        <div class="person reveal d1">
+          <img class="avatar" src="assets/organizers/nadeem-abbas.jpg" alt="Nadeem Abbas" loading="lazy" width="600" height="600">
+          <p class="name"><a href="https://www.lnu.se/en/staff/nadeem.abbas" target="_blank" rel="noopener">Nadeem Abbas</a></p>
+          <p class="aff">Linnaeus University, Sweden</p>
+          <p class="role">Organizing Co-chair</p>
+        </div>
+
+        <div class="person reveal d2">
+          <img class="avatar" src="assets/organizers/saif-ur-rehman-khan.jpg" alt="Saif Ur Rehman Khan" loading="lazy" width="600" height="600">
+          <p class="name"><a href="https://stmu.edu.pk/dr-saif-ur-rehman-2/" target="_blank" rel="noopener">Saif Ur Rehman Khan</a></p>
+          <p class="aff">Shifa Tameer-e-Millat University, Pakistan</p>
+          <p class="role">Organizing Co-chair</p>
+        </div>
+
       </div>
-
-      <div class="person reveal d1">
-        <img class="avatar" src="assets/organizers/nadeem-abbas.jpg" alt="Nadeem Abbas" loading="lazy" width="600" height="600">
-        <p class="name"><a href="https://www.lnu.se/en/staff/nadeem.abbas" target="_blank" rel="noopener">Nadeem Abbas</a></p>
-        <p class="aff">Linnaeus University, Sweden</p>
-        <p class="role">Organizing Co-chair</p>
-      </div>
-
-      <div class="person reveal d2">
-        <img class="avatar" src="assets/organizers/saif-ur-rehman-khan.jpg" alt="Saif Ur Rehman Khan" loading="lazy" width="600" height="600">
-        <p class="name"><a href="https://stmu.edu.pk/dr-saif-ur-rehman-2/" target="_blank" rel="noopener">Saif Ur Rehman Khan</a></p>
-        <p class="aff">Shifa Tameer-e-Millat University, Pakistan</p>
-        <p class="role">Organizing Co-chair</p>
-      </div>
-
-      <div class="person reveal d3">
-        <img class="avatar" src="assets/organizers/muhammad-haroon.jpg" alt="Muhammad Haroon" loading="lazy" width="600" height="600">
-        <p class="name"><a href="https://aisel.dev" target="_blank" rel="noopener">Muhammad Haroon</a></p>
-        <p class="aff">AISEL Lab</p>
-        <p class="role">Proceedings Chair</p>
-      </div>
-
     </div>
 
-    <div class="pc">
-      <h3 class="reveal">Program Committee</h3>
-      <p class="reveal">Coming soon.</p>
+    <div class="committee-block">
+      <h3 class="subhead reveal"><span>Outreach and Web Committee</span></h3>
+      <div class="underline-sm reveal"></div>
+      <div class="people single">
+
+        <div class="person reveal">
+          <img class="avatar" src="assets/organizers/muhammad-haroon.jpg" alt="Muhammad Haroon" loading="lazy" width="600" height="600">
+          <p class="name"><a href="https://aisel.dev" target="_blank" rel="noopener">Muhammad Haroon</a></p>
+          <p class="aff">AISEL Lab</p>
+          <p class="role">Outreach &amp; Web Chair</p>
+        </div>
+
+      </div>
     </div>
+
+    <div class="committee-block">
+      <h3 class="subhead reveal"><span>Steering Committee</span></h3>
+      <div class="underline-sm reveal"></div>
+      <p class="coming-soon-card reveal">Coming soon.</p>
+    </div>
+
   </div>
 </section>
 
