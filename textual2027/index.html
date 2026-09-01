@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEXTUAL: International Workshop on Text Analytics for Software Engineering</title>
+<meta name="description" content="TEXTUAL: International Workshop on Text Analytics for Software Engineering, SANER 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2f42;
+  --navy-2:#0a2231;
+  --teal:#0e6f6c;
+  --teal-bright:#12908c;
+  --accent:#c07a1e;
+  --accent-bright:#e09a35;
+  --bg:#ffffff;
+  --bg-alt:#f4f7f8;
+  --text:#1d2f39;
+  --muted:#5a6e7b;
+  --line:#d9e1e5;
+  --wrap:1100px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+
+/* No hyphenation and no mid-word breaks anywhere on the site */
+*,*::before,*::after{hyphens:none;-webkit-hyphens:none;-ms-hyphens:none;word-break:normal;overflow-wrap:normal}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Justified body copy, last line flush left, gaps kept tight */
+p,li,td,dd,blockquote{text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+p{max-width:78ch}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;padding:11px 24px}
+.nav a{position:relative;color:#d3e0e5;text-decoration:none;font-size:14.5px;font-weight:500;padding:7px 14px;transition:color .25s var(--ease)}
+.nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--accent-bright);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+.nav a:hover{color:#fff}
+.nav a:hover::after,.nav a.active::after{transform:scaleX(1)}
+.nav a.active{color:#fff}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(148deg,var(--navy) 0%,var(--navy-2) 58%,#0b4a4c 100%);color:#fff;padding:86px 0 80px;text-align:center}
+.hero::before{
+  content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px);
+  background-size:100% 34px;animation:drift 26s linear infinite;
+}
+@keyframes drift{to{background-position:0 34px}}
+/* soft light sweeping behind the title */
+.hero::after{
+  content:"";position:absolute;top:-40%;left:50%;width:820px;height:820px;margin-left:-410px;
+  background:radial-gradient(circle,rgba(18,144,140,.30) 0%,rgba(18,144,140,0) 62%);
+  pointer-events:none;animation:pulse 9s var(--ease) infinite;
+}
+@keyframes pulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.95;transform:scale(1.1)}}
+.hero .wrap{position:relative;z-index:1}
+.hero p{text-align:center;text-align-last:center;margin-left:auto;margin-right:auto}
+.hero .kicker{font-size:14.5px;color:#a2c2c9;max-width:680px;margin:0 auto 28px;line-height:1.55;letter-spacing:.01em}
+
+/* animated workshop title: letters rise in, then a slow gold sheen crosses it */
+.hero h1{
+  font-size:clamp(54px,11vw,98px);line-height:1;margin:0;font-weight:800;letter-spacing:.03em;
+  display:flex;justify-content:center;flex-wrap:wrap;
+}
+.hero h1 span{
+  display:inline-block;opacity:0;transform:translateY(26px);
+  background:linear-gradient(100deg,#fff 34%,var(--accent-bright) 50%,#fff 66%);
+  background-size:280% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:letterIn .62s var(--ease) forwards, sheen 7s 1.6s linear infinite;
+}
+@keyframes letterIn{to{opacity:1;transform:none}}
+@keyframes sheen{0%{background-position:150% 0}55%,100%{background-position:-150% 0}}
+.hero .sub{font-size:clamp(18px,2.35vw,25px);color:#e0ebed;max-width:800px;margin:20px auto 0;font-weight:400;line-height:1.45}
+.hero .rule{width:0;height:3px;background:var(--accent-bright);margin:28px auto;animation:grow .6s .9s var(--ease) forwards}
+@keyframes grow{to{width:78px}}
+.hero .loc{font-size:15px;color:#b3cbd1;margin:0}
+.hero .loc b{color:#fff;font-weight:600}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-block;padding:12px 26px;border-radius:4px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.24)}
+.btn-primary:hover{background:var(--accent-bright)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.13)}
+.hero .kicker,.hero .sub,.hero .loc,.hero .btns{animation:riseIn .6s var(--ease) both}
+.hero .sub{animation-delay:.72s}
+.hero .loc{animation-delay:.92s}
+.hero .btns{animation-delay:1.02s}
+@keyframes riseIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ---------- sections ---------- */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+section:nth-of-type(even){background:var(--bg-alt)}
+h2{font-size:33px;margin:0 0 10px;font-weight:700;letter-spacing:-.015em;color:var(--navy);text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+.underline{width:58px;height:4px;background:linear-gradient(90deg,var(--teal),var(--accent));margin-bottom:28px;border-radius:2px}
+h3{font-size:21px;margin:38px 0 10px;font-weight:600;color:var(--teal);text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+strong{font-weight:600;color:var(--navy)}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.07s}
+.reveal.d2{transition-delay:.14s}
+.reveal.d3{transition-delay:.21s}
+
+/* ---------- topic cards ---------- */
+.topics{list-style:none;padding:0;margin:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));align-items:stretch}
+.topics li{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+  background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:22px 24px;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease);
+}
+section:nth-of-type(even) .topics li{background:#fff}
+/* accent bar grows on hover */
+.topics li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal);transform:scaleY(1);transform-origin:top;transition:background .25s var(--ease)}
+.topics li:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,47,66,.13);border-color:#c9d6db}
+.topics li:hover::before{background:var(--accent)}
+.topics li:hover .t-title{color:var(--accent)}
+/* MAIN topic title: large and prominent */
+.t-title{
+  display:block;font-size:20.5px;line-height:1.3;font-weight:700;color:var(--teal);
+  margin:0 0 9px;letter-spacing:-.01em;text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em;
+  transition:color .25s var(--ease);
+}
+/* SUB text: smaller, justified, tight, never broken */
+.t-body{
+  display:block;font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;
+  text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.015em;
+}
+
+/* ---------- submission categories ---------- */
+.cats{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:stretch}
+.cats li{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;padding:22px 24px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+section:nth-of-type(even) .cats li{background:#fff}
+.cats li:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,47,66,.13)}
+.c-title{display:block;font-size:19px;font-weight:700;color:var(--navy);margin:0 0 4px;line-height:1.3;text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+.c-pages{display:block;font-size:13.5px;font-weight:600;color:var(--accent);margin:0 0 9px;letter-spacing:.02em}
+.c-body{display:block;font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;text-align:justify;text-align-last:left;word-spacing:-.015em}
+
+/* ---------- dates ---------- */
+.dates{list-style:none;padding:0;margin:24px 0 0;max-width:760px}
+.dates li>span:first-child{flex:1;text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+.dates li{display:flex;justify-content:space-between;gap:18px;align-items:baseline;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:5px;margin-bottom:11px;background:var(--bg);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-left-color .25s var(--ease)}
+section:nth-of-type(even) .dates li{background:#fff}
+.dates li:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(15,47,66,.1);border-left-color:var(--accent)}
+.dates .d{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--teal)}
+.dates li.highlight{border-left-color:var(--accent);background:#fffaf2}
+section:nth-of-type(even) .dates li.highlight{background:#fffaf2}
+.dates li.highlight .d{color:var(--accent)}
+.note{font-size:14.5px;color:var(--muted);text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+
+/* ---------- format ---------- */
+.format{list-style:none;padding:0;margin:22px 0 0;max-width:78ch}
+.format li{position:relative;padding:9px 0 9px 30px;text-align:justify;text-justify:inter-word;text-align-last:left;word-spacing:-.01em}
+.format li::before{content:"";position:absolute;left:6px;top:20px;width:8px;height:8px;background:var(--accent);border-radius:2px;transform:rotate(45deg)}
+
+/* ---------- organizers ---------- */
+.people{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));margin-top:28px;align-items:stretch}
+.person{display:flex;flex-direction:column;text-align:center;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:30px 20px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+section:nth-of-type(even) .person{background:#fff}
+.person:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,47,66,.13)}
+.avatar{display:block;width:116px;height:116px;border-radius:50%;object-fit:cover;object-position:center top;background:var(--bg-alt);margin:0 auto 16px;border:3px solid var(--teal);box-shadow:0 4px 14px rgba(15,47,66,.14);transition:border-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease)}
+.person:hover .avatar{border-color:var(--accent);transform:scale(1.03);box-shadow:0 8px 22px rgba(15,47,66,.2)}
+.person p{text-align:center;text-align-last:center;max-width:none;margin-left:auto;margin-right:auto}
+.person .name{font-size:18.5px;font-weight:700;margin:0 0 4px;color:var(--navy)}
+.person .name a{text-decoration:none;color:var(--navy)}
+.person .name a:hover{color:var(--teal)}
+.person .aff{font-size:14.5px;color:var(--muted);margin:0;line-height:1.5;margin-bottom:auto}
+.person .role{font-size:13px;font-weight:700;color:var(--accent);margin:14px 0 0;letter-spacing:.04em;text-transform:uppercase}
+.pc{margin-top:38px;color:var(--muted)}
+
+/* ---------- contact + footer ---------- */
+.contact{background:var(--navy);color:#dfeaed;text-align:center;border-bottom:none}
+.contact h2{color:#fff}
+.contact .underline{margin:0 auto 28px}
+.contact p{margin-left:auto;margin-right:auto;max-width:640px;text-align:center;text-align-last:center}
+.contact a{color:var(--accent-bright)}
+footer{background:var(--navy-2);color:#8fa5b0;text-align:center;padding:28px 24px;font-size:14px}
+
+/* ---------- back to top ---------- */
+#top{position:fixed;right:22px;bottom:22px;z-index:70;width:44px;height:44px;border:none;border-radius:50%;background:var(--teal);color:#fff;font-size:19px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s var(--ease),transform .25s var(--ease),background .25s var(--ease);box-shadow:0 6px 18px rgba(0,0,0,.24)}
+#top.show{opacity:1;pointer-events:auto;transform:none}
+#top:hover{background:var(--accent)}
+
+@media(max-width:720px){
+  body{font-size:16px}
+  section{padding:52px 0}
+  h2{font-size:27px}
+  .t-title{font-size:18.5px}
+  .dates li{flex-direction:column;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .hero .rule{width:78px}
+  .hero h1 span{opacity:1;transform:none;color:#fff;-webkit-text-fill-color:#fff}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#topics">Topics</a>
+    <a href="#submissions">Submissions</a>
+    <a href="#dates">Dates</a>
+    <a href="#format">Format</a>
+    <a href="#organization">Organization</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Co-located with SANER 2027 &middot; 34th IEEE International Conference on Software Analysis, Evolution and Reengineering</p>
+    <h1 id="title" aria-label="TEXTUAL">TEXTUAL</h1>
+    <p class="sub">International Workshop on Text Analytics for Software Engineering</p>
+    <div class="rule"></div>
+    <p class="loc">Location <b>Richmond, Virginia, USA</b></p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#submissions">Call for Submissions</a>
+      <a class="btn btn-ghost" href="#dates">Important Dates</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="reveal">About TEXTUAL 2027</h2>
+    <div class="underline reveal"></div>
+    <p class="reveal d1">Natural language is the connective tissue of modern software engineering. While source code defines what a system executes, millions of software repositories store the vital human intent, architectural rationale, and collaborative decision-making behind why and how software evolves. Critical domain knowledge remains locked inside unstructured and semi-structured text across the entire software development lifecycle (SDLC), ranging from traditional Requirements specifications, User stories, Architectural Decision Records (ADRs), Bug reports, Test case specifications, App Descriptions, Developer communications (GitHub discussions, Slack, pull request code reviews), and post-release user feedback, App reviews, to emerging artifacts like system prompts, Agentic skills (SKILL.md), and Markdown documentation.</p>
+    <p class="reveal d2">TEXTUAL brings together researchers and practitioners at the intersection of <strong>Software Engineering (SE)</strong>, <strong>Mining Software Repositories (MSR)</strong>, <strong>Natural Language Processing (NLP)</strong>, and <strong>Information Retrieval (IR).</strong> The workshop provides a dedicated forum to advance data-driven methodologies, repository-scale empirical evaluations, traditional text mining techniques (such as topic modeling, classification, and IR-based traceability), as well as domain-adapted LLMs, prompt and agent analytics, and open-access benchmark datasets designed to analyze, link, and extract actionable software intelligence from technical text.</p>
+  </div>
+</section>
+
+<section id="topics">
+  <div class="wrap">
+    <h2 class="reveal">Topics of Interest</h2>
+    <div class="underline reveal"></div>
+    <p class="reveal d1">We invite original contributions addressing quantitative, qualitative, empirical, statistical, and AI-driven approaches to software text analytics across the SDLC. Topics of interest include, but are not limited to:</p>
+    <ul class="topics">
+      <li class="reveal"><span class="t-title">Repository Mining &amp; Text-Centric MSR</span><span class="t-body">Large-scale mining of text repositories (GitHub, Jira, Stack Overflow, Slack), .md documentation ecosystems, commit logs, and process metrics extraction.</span></li>
+      <li class="reveal d1"><span class="t-title">Requirements Engineering &amp; Specification Analytics</span><span class="t-body">Ambiguity detection, quality assessment, quality concerns extraction, inconsistency resolution, and structural model extraction from SRSs, User Stories, and feature specs.</span></li>
+      <li class="reveal d2"><span class="t-title">Architecture Rationale &amp; Design Knowledge Mining</span><span class="t-body">Capturing, classifying, and synthesizing design rationale, quality concerns, architectural constraints, and technical debt from ADRs, RFCs, and architecture wikis.</span></li>
+      <li class="reveal"><span class="t-title">Developer Communication &amp; Social Analytics</span><span class="t-body">Mining developer interactions to analyze concerns, team dynamics, sentiment, tone, toxicity, onboarding friction, and collaborative decision-making.</span></li>
+      <li class="reveal d1"><span class="t-title">Maintenance &amp; Post-Release Feedback Mining</span><span class="t-body">Automated triage, duplicate detection, severity prediction for bug reports, and mining feature requests/issues from App Store reviews.</span></li>
+      <li class="reveal d2"><span class="t-title">Information Retrieval &amp; Traceability</span><span class="t-body">Lexical, sparse, dense, and hybrid IR models including BM25, VSM, semantic embeddings (S-BERT), bi-encoders, late-interaction architectures (ColBERT), and neural rerankers for automated traceability recovery across heterogeneous artifacts (e.g., SRSs to test suites, ADRs to bug reports).</span></li>
+      <li class="reveal"><span class="t-title">Topic Modeling &amp; Semantic Structuring</span><span class="t-body">LDA, BERTopic, structural topic modeling, and clustering for software documentation, developer discussions, and code comments.</span></li>
+      <li class="reveal d1"><span class="t-title">Prompts, Agentic Skills &amp; LLM Instruction Mining</span><span class="t-body">Empirical analysis, quality metrics, static/dynamic evaluation, and versioning of system prompts, agentic skills (SKILL.md), and LLM tool definitions.</span></li>
+      <li class="reveal d2"><span class="t-title">LLMs, Datasets &amp; Domain Adaptation</span><span class="t-body">Fine-tuning, RAG pipelines, hallucination/bias mitigation for SE dialects, annotated open-access corpora, and benchmark evaluation standards.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="submissions">
+  <div class="wrap">
+    <h2 class="reveal">Submission Categories</h2>
+    <div class="underline reveal"></div>
+    <p class="reveal d1">All papers must be written in English, formatted according to the official <strong>IEEE Conference Proceedings guidelines</strong> (two-column layout), and submitted electronically via the workshop submission portal.</p>
+    <p class="reveal d2">We invite the following paper categories:</p>
+    <ul class="cats">
+      <li class="reveal"><span class="c-title">Full Research Papers</span><span class="c-pages">UP TO 8 PAGES</span><span class="c-body">Mature research contributions, thorough empirical investigations, or validated technical methodologies.</span></li>
+      <li class="reveal d1"><span class="c-title">Short / Vision Papers</span><span class="c-pages">UP TO 4 PAGES</span><span class="c-body">Work-in-progress, novel research directions, preliminary empirical results, or visionary challenge proposals.</span></li>
+      <li class="reveal d2"><span class="c-title">Tool &amp; Dataset Papers</span><span class="c-pages">UP TO 4 PAGES</span><span class="c-body">Demonstrations of automated text processing pipelines, mining tools, or annotated open-access software text corpora.</span></li>
+    </ul>
+    <p class="reveal" style="margin-top:28px"><a class="btn btn-primary" href="#">Submission Site Coming Soon</a></p>
+  </div>
+</section>
+
+<section id="dates">
+  <div class="wrap">
+    <h2 class="reveal">Important Dates</h2>
+    <div class="underline reveal"></div>
+    <p class="note reveal d1">All deadlines are AoE (UTC-12h), unless otherwise stated by SANER.</p>
+    <ul class="dates">
+      <li class="reveal"><span>Abstract submission</span><span class="d">October 19, 2026</span></li>
+      <li class="reveal d1"><span>Paper submission</span><span class="d">October 23, 2026</span></li>
+      <li class="reveal d2"><span>Author notification</span><span class="d">December 8, 2026</span></li>
+      <li class="reveal d2"><span>Camera-ready submission</span><span class="d">January 8, 2027</span></li>
+      <li class="reveal d3 highlight"><span>Workshop date</span><span class="d">March 9, 2027</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="format">
+  <div class="wrap">
+    <h2 class="reveal">Workshop Format</h2>
+    <div class="underline reveal"></div>
+    <p class="reveal d1">TEXTUAL is planned as a full-day interactive workshop. The program will combine invited and peer-reviewed content with structured discussions to encourage community building around text analytics for software engineering.</p>
+    <ul class="format">
+      <li class="reveal">Opening and workshop framing</li>
+      <li class="reveal">Invited keynote talk</li>
+      <li class="reveal d1">Presentations of accepted research, vision, tool, and dataset papers</li>
+      <li class="reveal d1">Panel on text analytics and LLMs in industrial software practice</li>
+      <li class="reveal d2">Structured breakout discussion on dataset, benchmark, and evaluation gaps</li>
+      <li class="reveal d2">Closing synthesis to identify community priorities and collaboration opportunities</li>
+    </ul>
+  </div>
+</section>
+
+<section id="organization">
+  <div class="wrap">
+    <h2 class="reveal">Organizing Committee</h2>
+    <div class="underline reveal"></div>
+    <div class="people">
+
+      <div class="person reveal">
+        <img class="avatar" src="assets/organizers/khubaib-amjad-alam.jpg" alt="Khubaib Amjad Alam" loading="lazy" width="600" height="600">
+        <p class="name"><a href="https://aau.ac.ae/en/staff/khubaib-Alam" target="_blank" rel="noopener">Khubaib Amjad Alam</a></p>
+        <p class="aff">Al Ain University, United Arab Emirates</p>
+        <p class="role">Organizing Chair</p>
+      </div>
+
+      <div class="person reveal d1">
+        <img class="avatar" src="assets/organizers/nadeem-abbas.jpg" alt="Nadeem Abbas" loading="lazy" width="600" height="600">
+        <p class="name"><a href="https://www.lnu.se/en/staff/nadeem.abbas" target="_blank" rel="noopener">Nadeem Abbas</a></p>
+        <p class="aff">Linnaeus University, Sweden</p>
+        <p class="role">Organizing Co-chair</p>
+      </div>
+
+      <div class="person reveal d2">
+        <img class="avatar" src="assets/organizers/saif-ur-rehman-khan.jpg" alt="Saif Ur Rehman Khan" loading="lazy" width="600" height="600">
+        <p class="name"><a href="https://stmu.edu.pk/dr-saif-ur-rehman-2/" target="_blank" rel="noopener">Saif Ur Rehman Khan</a></p>
+        <p class="aff">Shifa Tameer-e-Millat University, Pakistan</p>
+        <p class="role">Organizing Co-chair</p>
+      </div>
+
+      <div class="person reveal d3">
+        <img class="avatar" src="assets/organizers/muhammad-haroon.jpg" alt="Muhammad Haroon" loading="lazy" width="600" height="600">
+        <p class="name"><a href="https://aisel.dev" target="_blank" rel="noopener">Muhammad Haroon</a></p>
+        <p class="aff">AISEL Lab</p>
+        <p class="role">Proceedings Chair</p>
+      </div>
+
+    </div>
+
+    <div class="pc">
+      <h3 class="reveal">Program Committee</h3>
+      <p class="reveal">Coming soon.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 class="reveal">Contact</h2>
+    <div class="underline reveal"></div>
+    <p class="reveal d1">For questions about TEXTUAL 2027, please contact <a href="mailto:textual.workshop@example.org">textual.workshop@example.org</a>.</p>
+  </div>
+</section>
+
+<footer>
+  TEXTUAL: International Workshop on Text Analytics for Software Engineering
+</footer>
+
+<button id="top" aria-label="Back to top">&#8593;</button>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Split the workshop title into animated letters
+  var title = document.getElementById('title');
+  if (title) {
+    var word = title.textContent.trim();
+    title.textContent = '';
+    for (var i = 0; i < word.length; i++) {
+      var s = document.createElement('span');
+      s.textContent = word[i];
+      s.style.animationDelay = (0.12 + i * 0.075) + 's, ' + (1.6 + i * 0.075) + 's';
+      title.appendChild(s);
+    }
+  }
+
+  // Scroll reveal
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  // Active nav link and back-to-top visibility
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var btn = document.getElementById('top');
+  function onScroll(){
+    var y = window.scrollY + 100, current = -1;
+    sections.forEach(function(s, i){ if (s && s.offsetTop <= y) current = i; });
+    links.forEach(function(a, i){ a.classList.toggle('active', i === current); });
+    btn.classList.toggle('show', window.scrollY > 500);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
